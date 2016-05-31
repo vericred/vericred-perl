@@ -52,148 +52,12 @@ sub new {
 
 
 #
-# providers_get
+# get_provider
 #
-# Find providers by term and zip code
-# 
-# @param string $search_term String to search by (required)
-# @param string $zip_code Zip Code to search near (required)
-# @param string $accepts_insurance Limit results to Providers who accept at least one insurance plan.  Note that the inverse of this filter is not supported and any value will evaluate to true (optional)
-# @param ARRAY[string] $hios_ids HIOS id of one or more plans (optional)
-# @param string $page Page number (optional)
-# @param string $per_page Number of records to return per page (optional)
-# @param string $radius Radius (in miles) to use to limit results (optional)
-{
-    my $params = {
-    'search_term' => {
-        data_type => 'string',
-        description => 'String to search by',
-        required => '1',
-    },
-    'zip_code' => {
-        data_type => 'string',
-        description => 'Zip Code to search near',
-        required => '1',
-    },
-    'accepts_insurance' => {
-        data_type => 'string',
-        description => 'Limit results to Providers who accept at least one insurance plan.  Note that the inverse of this filter is not supported and any value will evaluate to true',
-        required => '0',
-    },
-    'hios_ids' => {
-        data_type => 'ARRAY[string]',
-        description => 'HIOS id of one or more plans',
-        required => '0',
-    },
-    'page' => {
-        data_type => 'string',
-        description => 'Page number',
-        required => '0',
-    },
-    'per_page' => {
-        data_type => 'string',
-        description => 'Number of records to return per page',
-        required => '0',
-    },
-    'radius' => {
-        data_type => 'string',
-        description => 'Radius (in miles) to use to limit results',
-        required => '0',
-    },
-    };
-    __PACKAGE__->method_documentation->{ providers_get } = { 
-    	summary => 'Find providers by term and zip code',
-        params => $params,
-        returns => 'InlineResponse200',
-        };
-}
-# @return InlineResponse200
-#
-sub providers_get {
-    my ($self, %args) = @_;
-
-    # verify the required parameter 'search_term' is set
-    unless (exists $args{'search_term'}) {
-      croak("Missing the required parameter 'search_term' when calling providers_get");
-    }
-
-    # verify the required parameter 'zip_code' is set
-    unless (exists $args{'zip_code'}) {
-      croak("Missing the required parameter 'zip_code' when calling providers_get");
-    }
-
-    # parse inputs
-    my $_resource_path = '/providers';
-    $_resource_path =~ s/{format}/json/; # default format to json
-
-    my $_method = 'GET';
-    my $query_params = {};
-    my $header_params = {};
-    my $form_params = {};
-
-    # 'Accept' and 'Content-Type' header
-    my $_header_accept = $self->{api_client}->select_header_accept();
-    if ($_header_accept) {
-        $header_params->{'Accept'} = $_header_accept;
-    }
-    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # query params
-    if ( exists $args{'accepts_insurance'}) {
-        $query_params->{'accepts_insurance'} = $self->{api_client}->to_query_value($args{'accepts_insurance'});
-    }
-
-    # query params
-    if ( exists $args{'hios_ids'}) {
-        $query_params->{'hios_ids'} = $self->{api_client}->to_query_value($args{'hios_ids'});
-    }
-
-    # query params
-    if ( exists $args{'page'}) {
-        $query_params->{'page'} = $self->{api_client}->to_query_value($args{'page'});
-    }
-
-    # query params
-    if ( exists $args{'per_page'}) {
-        $query_params->{'per_page'} = $self->{api_client}->to_query_value($args{'per_page'});
-    }
-
-    # query params
-    if ( exists $args{'radius'}) {
-        $query_params->{'radius'} = $self->{api_client}->to_query_value($args{'radius'});
-    }
-
-    # query params
-    if ( exists $args{'search_term'}) {
-        $query_params->{'search_term'} = $self->{api_client}->to_query_value($args{'search_term'});
-    }
-
-    # query params
-    if ( exists $args{'zip_code'}) {
-        $query_params->{'zip_code'} = $self->{api_client}->to_query_value($args{'zip_code'});
-    }
-
-    my $_body_data;
-    # authentication setting, if any
-    my $auth_settings = [qw()];
-
-    # make the API Call
-    my $response = $self->{api_client}->call_api($_resource_path, $_method,
-                                           $query_params, $form_params,
-                                           $header_params, $_body_data, $auth_settings);
-    if (!$response) {
-        return;
-    }
-    my $_response_object = $self->{api_client}->deserialize('InlineResponse200', $response);
-    return $_response_object;
-}
-
-#
-# providers_npi_get
-#
-# Find a specific Provider
+# Find a Provider
 # 
 # @param string $npi NPI number (required)
+# @param string $vericred_api_key API Key (optional)
 {
     my $params = {
     'npi' => {
@@ -201,21 +65,26 @@ sub providers_get {
         description => 'NPI number',
         required => '1',
     },
+    'vericred_api_key' => {
+        data_type => 'string',
+        description => 'API Key',
+        required => '0',
+    },
     };
-    __PACKAGE__->method_documentation->{ providers_npi_get } = { 
-    	summary => 'Find a specific Provider',
+    __PACKAGE__->method_documentation->{ get_provider } = { 
+    	summary => 'Find a Provider',
         params => $params,
-        returns => 'InlineResponse2001',
+        returns => 'Provider',
         };
 }
-# @return InlineResponse2001
+# @return Provider
 #
-sub providers_npi_get {
+sub get_provider {
     my ($self, %args) = @_;
 
     # verify the required parameter 'npi' is set
     unless (exists $args{'npi'}) {
-      croak("Missing the required parameter 'npi' when calling providers_npi_get");
+      croak("Missing the required parameter 'npi' when calling get_provider");
     }
 
     # parse inputs
@@ -233,6 +102,11 @@ sub providers_npi_get {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
+
+    # header params
+    if ( exists $args{'vericred_api_key'}) {
+        $header_params->{'Vericred-Api-Key'} = $self->{api_client}->to_header_value($args{'vericred_api_key'});
+    }
 
     # path params
     if ( exists $args{'npi'}) {
@@ -252,7 +126,68 @@ sub providers_npi_get {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('InlineResponse2001', $response);
+    my $_response_object = $self->{api_client}->deserialize('Provider', $response);
+    return $_response_object;
+}
+
+#
+# get_providers
+#
+# Find Providers
+# 
+# @param RequestProvidersSearch $body  (optional)
+{
+    my $params = {
+    'body' => {
+        data_type => 'RequestProvidersSearch',
+        description => '',
+        required => '0',
+    },
+    };
+    __PACKAGE__->method_documentation->{ get_providers } = { 
+    	summary => 'Find Providers',
+        params => $params,
+        returns => 'ProvidersSearchResponse',
+        };
+}
+# @return ProvidersSearchResponse
+#
+sub get_providers {
+    my ($self, %args) = @_;
+
+    # parse inputs
+    my $_resource_path = '/providers/search';
+    $_resource_path =~ s/{format}/json/; # default format to json
+
+    my $_method = 'POST';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept();
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
+
+    my $_body_data;
+    # body params
+    if ( exists $args{'body'}) {
+        $_body_data = $args{'body'};
+    }
+
+    # authentication setting, if any
+    my $auth_settings = [qw()];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('ProvidersSearchResponse', $response);
     return $_response_object;
 }
 

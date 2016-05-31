@@ -1,4 +1,4 @@
-package VericredClient::Object::InlineResponse200;
+package VericredClient::Object::DrugSearchResponse;
 
 require 5.6.0;
 use strict;
@@ -98,35 +98,44 @@ sub _deserialize {
 
 
 __PACKAGE__->class_documentation({description => '',
-                                  class => 'InlineResponse200',
+                                  class => 'DrugSearchResponse',
                                   required => [], # TODO
 }                                 );
 
 __PACKAGE__->method_documentation({
     'meta' => {
-    	datatype => 'object',
+    	datatype => 'Meta',
     	base_name => 'meta',
-    	description => '',
+    	description => 'Metadata for query',
     	format => '',
     	read_only => '',
     		},
-    'providers' => {
-    	datatype => 'ARRAY[Provider]',
-    	base_name => 'providers',
-    	description => '',
+    'drugs' => {
+    	datatype => 'ARRAY[Drug]',
+    	base_name => 'drugs',
+    	description => 'Drugs found in query',
+    	format => '',
+    	read_only => '',
+    		},
+    'drug_packages' => {
+    	datatype => 'ARRAY[DrugPackage]',
+    	base_name => 'drug_packages',
+    	description => 'DrugPackages',
     	format => '',
     	read_only => '',
     		},
 });
 
 __PACKAGE__->swagger_types( {
-    'meta' => 'object',
-    'providers' => 'ARRAY[Provider]'
+    'meta' => 'Meta',
+    'drugs' => 'ARRAY[Drug]',
+    'drug_packages' => 'ARRAY[DrugPackage]'
 } );
 
 __PACKAGE__->attribute_map( {
     'meta' => 'meta',
-    'providers' => 'providers'
+    'drugs' => 'drugs',
+    'drug_packages' => 'drug_packages'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

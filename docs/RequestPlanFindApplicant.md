@@ -1,15 +1,14 @@
-# VericredClient::Object::InlineResponse200
+# VericredClient::Object::RequestPlanFindApplicant
 
 ## Load the model package
 ```perl
-use VericredClient::Object::InlineResponse200;
+use VericredClient::Object::RequestPlanFindApplicant;
 ```
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**meta** | **object** |  | [optional] 
-**providers** | [**ARRAY[Provider]**](Provider.md) |  | [optional] 
+**age** | **int** | Age of applicant to search for | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -9,14 +9,60 @@ All URIs are relative to *https://api.vericred.com/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**providers_get**](ProvidersApi.md#providers_get) | **GET** /providers | Find providers by term and zip code
-[**providers_npi_get**](ProvidersApi.md#providers_npi_get) | **GET** /providers/{npi} | Find a specific Provider
+[**get_provider**](ProvidersApi.md#get_provider) | **GET** /providers/{npi} | Find a Provider
+[**get_providers**](ProvidersApi.md#get_providers) | **POST** /providers/search | Find Providers
 
 
-# **providers_get**
-> InlineResponse200 providers_get(search_term => $search_term, zip_code => $zip_code, accepts_insurance => $accepts_insurance, hios_ids => $hios_ids, page => $page, per_page => $per_page, radius => $radius)
+# **get_provider**
+> Provider get_provider(npi => $npi, vericred_api_key => $vericred_api_key)
 
-Find providers by term and zip code
+Find a Provider
+
+To retrieve a specific provider, just perform a GET using his NPI number
+
+### Example 
+```perl
+use Data::Dumper;
+
+my $api_instance = VericredClient::ProvidersApi->new();
+my $npi = '1234567890'; # string | NPI number
+my $vericred_api_key = 'api-doc-key'; # string | API Key
+
+eval { 
+    my $result = $api_instance->get_provider(npi => $npi, vericred_api_key => $vericred_api_key);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling ProvidersApi->get_provider: $@\n";
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **npi** | **string**| NPI number | 
+ **vericred_api_key** | **string**| API Key | [optional] 
+
+### Return type
+
+[**Provider**](Provider.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_providers**
+> ProvidersSearchResponse get_providers(body => $body)
+
+Find Providers
 
 All `Provider` searches require a `zip_code`, which we use for weighting
 the search results to favor `Provider`s that are near the user.  For example,
@@ -33,26 +79,19 @@ Specialty name search.  So, searching "John Smith nose" would return
 "Dr. John Smith", the ENT Specialist before "Dr. John Smith" the Internist.
 
 
-
 ### Example 
 ```perl
 use Data::Dumper;
 
 my $api_instance = VericredClient::ProvidersApi->new();
-my $search_term = 'search_term_example'; # string | String to search by
-my $zip_code = 'zip_code_example'; # string | Zip Code to search near
-my $accepts_insurance = 'accepts_insurance_example'; # string | Limit results to Providers who accept at least one insurance plan.  Note that the inverse of this filter is not supported and any value will evaluate to true
-my $hios_ids = (); # ARRAY[string] | HIOS id of one or more plans
-my $page = 'page_example'; # string | Page number
-my $per_page = 'per_page_example'; # string | Number of records to return per page
-my $radius = 'radius_example'; # string | Radius (in miles) to use to limit results
+my $body = VericredClient::Object::RequestProvidersSearch->new(); # RequestProvidersSearch | 
 
 eval { 
-    my $result = $api_instance->providers_get(search_term => $search_term, zip_code => $zip_code, accepts_insurance => $accepts_insurance, hios_ids => $hios_ids, page => $page, per_page => $per_page, radius => $radius);
+    my $result = $api_instance->get_providers(body => $body);
     print Dumper($result);
 };
 if ($@) {
-    warn "Exception when calling ProvidersApi->providers_get: $@\n";
+    warn "Exception when calling ProvidersApi->get_providers: $@\n";
 }
 ```
 
@@ -60,63 +99,11 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **search_term** | **string**| String to search by | 
- **zip_code** | **string**| Zip Code to search near | 
- **accepts_insurance** | **string**| Limit results to Providers who accept at least one insurance plan.  Note that the inverse of this filter is not supported and any value will evaluate to true | [optional] 
- **hios_ids** | [**ARRAY[string]**](string.md)| HIOS id of one or more plans | [optional] 
- **page** | **string**| Page number | [optional] 
- **per_page** | **string**| Number of records to return per page | [optional] 
- **radius** | **string**| Radius (in miles) to use to limit results | [optional] 
+ **body** | [**RequestProvidersSearch**](RequestProvidersSearch.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **providers_npi_get**
-> InlineResponse2001 providers_npi_get(npi => $npi)
-
-Find a specific Provider
-
-To retrieve a specific provider, just perform a GET using his NPI number
-
-
-
-### Example 
-```perl
-use Data::Dumper;
-
-my $api_instance = VericredClient::ProvidersApi->new();
-my $npi = 'npi_example'; # string | NPI number
-
-eval { 
-    my $result = $api_instance->providers_npi_get(npi => $npi);
-    print Dumper($result);
-};
-if ($@) {
-    warn "Exception when calling ProvidersApi->providers_npi_get: $@\n";
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **npi** | **string**| NPI number | 
-
-### Return type
-
-[**InlineResponse2001**](InlineResponse2001.md)
+[**ProvidersSearchResponse**](ProvidersSearchResponse.md)
 
 ### Authorization
 

@@ -9,7 +9,7 @@ use VericredClient::Object::DrugCoverage;
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **plan_id** | **string** | Health Insurance Oversight System id | [optional] 
-**ndc_package_code** | **string** | NDC package code | [optional] 
+**drug_package_id** | **string** | NDC package code | [optional] 
 **tier** | **string** | Tier Name | [optional] 
 **quantity_limit** | **boolean** | Quantity limit exists | [optional] 
 **prior_authorization** | **boolean** | Prior authorization required | [optional] 

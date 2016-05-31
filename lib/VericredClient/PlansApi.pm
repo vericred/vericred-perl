@@ -52,37 +52,32 @@ sub new {
 
 
 #
-# plans_find_post
+# find_plans
 #
-# Find a set of plans for a Zip Code and County
+# Find Plans
 # 
-# @param Query $query Plan query (required)
+# @param RequestPlanFind $body  (optional)
 {
     my $params = {
-    'query' => {
-        data_type => 'Query',
-        description => 'Plan query',
-        required => '1',
+    'body' => {
+        data_type => 'RequestPlanFind',
+        description => '',
+        required => '0',
     },
     };
-    __PACKAGE__->method_documentation->{ plans_find_post } = { 
-    	summary => 'Find a set of plans for a Zip Code and County',
+    __PACKAGE__->method_documentation->{ find_plans } = { 
+    	summary => 'Find Plans',
         params => $params,
-        returns => 'ARRAY[Plan]',
+        returns => 'PlanSearchResponse',
         };
 }
-# @return ARRAY[Plan]
+# @return PlanSearchResponse
 #
-sub plans_find_post {
+sub find_plans {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'query' is set
-    unless (exists $args{'query'}) {
-      croak("Missing the required parameter 'query' when calling plans_find_post");
-    }
-
     # parse inputs
-    my $_resource_path = '/plans/find';
+    my $_resource_path = '/plans/search';
     $_resource_path =~ s/{format}/json/; # default format to json
 
     my $_method = 'POST';
@@ -99,8 +94,8 @@ sub plans_find_post {
 
     my $_body_data;
     # body params
-    if ( exists $args{'query'}) {
-        $_body_data = $args{'query'};
+    if ( exists $args{'body'}) {
+        $_body_data = $args{'body'};
     }
 
     # authentication setting, if any
@@ -113,7 +108,7 @@ sub plans_find_post {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('ARRAY[Plan]', $response);
+    my $_response_object = $self->{api_client}->deserialize('PlanSearchResponse', $response);
     return $_response_object;
 }
 

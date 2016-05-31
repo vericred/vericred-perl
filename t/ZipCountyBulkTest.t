@@ -9,9 +9,9 @@ use strict;
 use warnings;
 
 
-use_ok('VericredClient::Object::InlineResponse2002');
+use_ok('VericredClient::Object::ZipCountyBulk');
 
-my $instance = VericredClient::Object::InlineResponse2002->new();
+my $instance = VericredClient::Object::ZipCountyBulk->new();
 
-isa_ok($instance, 'VericredClient::Object::InlineResponse2002');
+isa_ok($instance, 'VericredClient::Object::ZipCountyBulk');
 

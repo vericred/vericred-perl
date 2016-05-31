@@ -30,25 +30,20 @@ my $api = VericredClient::ProvidersApi->new();
 isa_ok($api, 'VericredClient::ProvidersApi');
 
 #
-# providers_get test
-#
-{
-    my $search_term = undef; # replace NULL with a proper value
-    my $zip_code = undef; # replace NULL with a proper value
-    my $accepts_insurance = undef; # replace NULL with a proper value
-    my $hios_ids = undef; # replace NULL with a proper value
-    my $page = undef; # replace NULL with a proper value
-    my $per_page = undef; # replace NULL with a proper value
-    my $radius = undef; # replace NULL with a proper value
-    my $result = $api->providers_get(search_term => $search_term, zip_code => $zip_code, accepts_insurance => $accepts_insurance, hios_ids => $hios_ids, page => $page, per_page => $per_page, radius => $radius);
-}
-
-#
-# providers_npi_get test
+# get_provider test
 #
 {
     my $npi = undef; # replace NULL with a proper value
-    my $result = $api->providers_npi_get(npi => $npi);
+    my $vericred_api_key = undef; # replace NULL with a proper value
+    my $result = $api->get_provider(npi => $npi, vericred_api_key => $vericred_api_key);
+}
+
+#
+# get_providers test
+#
+{
+    my $body = undef; # replace NULL with a proper value
+    my $result = $api->get_providers(body => $body);
 }
 
 

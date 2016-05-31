@@ -1,4 +1,4 @@
-package VericredClient::Object::InlineResponse2002;
+package VericredClient::Object::ZipCountiesResponse;
 
 require 5.6.0;
 use strict;
@@ -98,43 +98,52 @@ sub _deserialize {
 
 
 __PACKAGE__->class_documentation({description => '',
-                                  class => 'InlineResponse2002',
+                                  class => 'ZipCountiesResponse',
                                   required => [], # TODO
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'zip_counties' => {
-    	datatype => 'ARRAY[ZipCounty]',
-    	base_name => 'zip_counties',
-    	description => '',
-    	format => '',
-    	read_only => '',
-    		},
     'counties' => {
     	datatype => 'ARRAY[County]',
     	base_name => 'counties',
-    	description => '',
+    	description => 'Counties that exist in the provided zip prefix.',
+    	format => '',
+    	read_only => '',
+    		},
+    'states' => {
+    	datatype => 'ARRAY[State]',
+    	base_name => 'states',
+    	description => 'States that exist in the provided zip prefix.',
+    	format => '',
+    	read_only => '',
+    		},
+    'zip_counties' => {
+    	datatype => 'ARRAY[ZipCounty]',
+    	base_name => 'zip_counties',
+    	description => 'ZipCounties that exist in the provided zip prefix.',
     	format => '',
     	read_only => '',
     		},
     'zip_codes' => {
     	datatype => 'ARRAY[ZipCode]',
     	base_name => 'zip_codes',
-    	description => '',
+    	description => 'ZipCodes that exist in the provided zip prefix.',
     	format => '',
     	read_only => '',
     		},
 });
 
 __PACKAGE__->swagger_types( {
-    'zip_counties' => 'ARRAY[ZipCounty]',
     'counties' => 'ARRAY[County]',
+    'states' => 'ARRAY[State]',
+    'zip_counties' => 'ARRAY[ZipCounty]',
     'zip_codes' => 'ARRAY[ZipCode]'
 } );
 
 __PACKAGE__->attribute_map( {
-    'zip_counties' => 'zip_counties',
     'counties' => 'counties',
+    'states' => 'states',
+    'zip_counties' => 'zip_counties',
     'zip_codes' => 'zip_codes'
 } );
 

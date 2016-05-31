@@ -9,9 +9,9 @@ use strict;
 use warnings;
 
 
-use_ok('VericredClient::Object::Query');
+use_ok('VericredClient::Object::NetworkSearchResponse');
 
-my $instance = VericredClient::Object::Query->new();
+my $instance = VericredClient::Object::NetworkSearchResponse->new();
 
-isa_ok($instance, 'VericredClient::Object::Query');
+isa_ok($instance, 'VericredClient::Object::NetworkSearchResponse');
 

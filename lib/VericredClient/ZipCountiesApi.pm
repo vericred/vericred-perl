@@ -52,11 +52,12 @@ sub new {
 
 
 #
-# zip_counties_get
+# get_zip_counties
 #
-# Find Zip Counties by Zip Code
+# Search for Zip Counties
 # 
 # @param string $zip_prefix Partial five-digit Zip (required)
+# @param string $vericred_api_key API Key (optional)
 {
     my $params = {
     'zip_prefix' => {
@@ -64,21 +65,26 @@ sub new {
         description => 'Partial five-digit Zip',
         required => '1',
     },
+    'vericred_api_key' => {
+        data_type => 'string',
+        description => 'API Key',
+        required => '0',
+    },
     };
-    __PACKAGE__->method_documentation->{ zip_counties_get } = { 
-    	summary => 'Find Zip Counties by Zip Code',
+    __PACKAGE__->method_documentation->{ get_zip_counties } = { 
+    	summary => 'Search for Zip Counties',
         params => $params,
-        returns => 'InlineResponse2002',
+        returns => 'ZipCountyResponse',
         };
 }
-# @return InlineResponse2002
+# @return ZipCountyResponse
 #
-sub zip_counties_get {
+sub get_zip_counties {
     my ($self, %args) = @_;
 
     # verify the required parameter 'zip_prefix' is set
     unless (exists $args{'zip_prefix'}) {
-      croak("Missing the required parameter 'zip_prefix' when calling zip_counties_get");
+      croak("Missing the required parameter 'zip_prefix' when calling get_zip_counties");
     }
 
     # parse inputs
@@ -102,6 +108,11 @@ sub zip_counties_get {
         $query_params->{'zip_prefix'} = $self->{api_client}->to_query_value($args{'zip_prefix'});
     }
 
+    # header params
+    if ( exists $args{'vericred_api_key'}) {
+        $header_params->{'Vericred-Api-Key'} = $self->{api_client}->to_header_value($args{'vericred_api_key'});
+    }
+
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -113,7 +124,7 @@ sub zip_counties_get {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('InlineResponse2002', $response);
+    my $_response_object = $self->{api_client}->deserialize('ZipCountyResponse', $response);
     return $_response_object;
 }
 

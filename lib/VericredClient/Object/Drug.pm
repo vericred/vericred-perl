@@ -103,9 +103,9 @@ __PACKAGE__->class_documentation({description => '',
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'ndc' => {
+    'id' => {
     	datatype => 'string',
-    	base_name => 'ndc',
+    	base_name => 'id',
     	description => 'National Drug Code ID',
     	format => '',
     	read_only => '',
@@ -124,18 +124,27 @@ __PACKAGE__->method_documentation({
     	format => '',
     	read_only => '',
     		},
+    'drug_package_ids' => {
+    	datatype => 'ARRAY[string]',
+    	base_name => 'drug_package_ids',
+    	description => 'Array of drug package Ids',
+    	format => '',
+    	read_only => '',
+    		},
 });
 
 __PACKAGE__->swagger_types( {
-    'ndc' => 'string',
+    'id' => 'string',
     'proprietary_name' => 'string',
-    'non_proprietary_name' => 'string'
+    'non_proprietary_name' => 'string',
+    'drug_package_ids' => 'ARRAY[string]'
 } );
 
 __PACKAGE__->attribute_map( {
-    'ndc' => 'ndc',
+    'id' => 'id',
     'proprietary_name' => 'proprietary_name',
-    'non_proprietary_name' => 'non_proprietary_name'
+    'non_proprietary_name' => 'non_proprietary_name',
+    'drug_package_ids' => 'drug_package_ids'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});
