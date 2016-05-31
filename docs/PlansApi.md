@@ -9,13 +9,13 @@ All URIs are relative to *https://api.vericred.com/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**plans_find_post**](PlansApi.md#plans_find_post) | **POST** /plans/find | Find a set of plans for a Zip Code and County
+[**find_plans**](PlansApi.md#find_plans) | **POST** /plans/search | Find Plans
 
 
-# **plans_find_post**
-> ARRAY[Plan] plans_find_post(query => $query)
+# **find_plans**
+> PlanSearchResponse find_plans(body => $body)
 
-Find a set of plans for a Zip Code and County
+Find Plans
 
 ### Location Information
 
@@ -36,7 +36,6 @@ Applicants *must* include an age.  If smoker is omitted, its value is assumed
 to be false.
 
 #### Multiple Applicants
-
 To get pricing for multiple applicants, just append multiple sets
 of data to the URL with the age and smoking status of each applicant
 next to each other.
@@ -80,20 +79,19 @@ and return it for each plan.  If no values are provided, the
 `GET /plans?zip_code=07451&fips_code=33025&household_size=4&household_income=40000`
 
 
-
 ### Example 
 ```perl
 use Data::Dumper;
 
 my $api_instance = VericredClient::PlansApi->new();
-my $query = VericredClient::Object::Query->new(); # Query | Plan query
+my $body = VericredClient::Object::RequestPlanFind->new(); # RequestPlanFind | 
 
 eval { 
-    my $result = $api_instance->plans_find_post(query => $query);
+    my $result = $api_instance->find_plans(body => $body);
     print Dumper($result);
 };
 if ($@) {
-    warn "Exception when calling PlansApi->plans_find_post: $@\n";
+    warn "Exception when calling PlansApi->find_plans: $@\n";
 }
 ```
 
@@ -101,11 +99,11 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | [**Query**](Query.md)| Plan query | 
+ **body** | [**RequestPlanFind**](RequestPlanFind.md)|  | [optional] 
 
 ### Return type
 
-[**ARRAY[Plan]**](Plan.md)
+[**PlanSearchResponse**](PlanSearchResponse.md)
 
 ### Authorization
 

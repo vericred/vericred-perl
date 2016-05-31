@@ -30,11 +30,12 @@ my $api = VericredClient::ZipCountiesApi->new();
 isa_ok($api, 'VericredClient::ZipCountiesApi');
 
 #
-# zip_counties_get test
+# get_zip_counties test
 #
 {
     my $zip_prefix = undef; # replace NULL with a proper value
-    my $result = $api->zip_counties_get(zip_prefix => $zip_prefix);
+    my $vericred_api_key = undef; # replace NULL with a proper value
+    my $result = $api->get_zip_counties(zip_prefix => $zip_prefix, vericred_api_key => $vericred_api_key);
 }
 
 

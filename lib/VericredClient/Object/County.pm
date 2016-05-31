@@ -141,16 +141,14 @@ __PACKAGE__->method_documentation({
     'state_live' => {
     	datatype => 'boolean',
     	base_name => 'state_live',
-    	description => 'Is the state containing this county active for consumers?
-                  *deprecated in favor of last_date_for_individual',
+    	description => 'Is the state containing this county active for consumers?(deprecated in favor of last_date_for_individual)',
     	format => '',
     	read_only => '',
     		},
     'state_live_for_business' => {
     	datatype => 'boolean',
     	base_name => 'state_live_for_business',
-    	description => 'Is the state containing this county active for business?
-                  *deprecated in favor of last_date_for_shop',
+    	description => 'Is the state containing this county active for business?(deprecated in favor of last_date_for_shop)',
     	format => '',
     	read_only => '',
     		},

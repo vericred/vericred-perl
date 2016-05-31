@@ -9,9 +9,9 @@ use strict;
 use warnings;
 
 
-use_ok('VericredClient::Object::InlineResponse200');
+use_ok('VericredClient::Object::Meta');
 
-my $instance = VericredClient::Object::InlineResponse200->new();
+my $instance = VericredClient::Object::Meta->new();
 
-isa_ok($instance, 'VericredClient::Object::InlineResponse200');
+isa_ok($instance, 'VericredClient::Object::Meta');
 

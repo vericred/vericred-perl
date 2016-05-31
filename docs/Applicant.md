@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | Primary key | [optional] 
 **dob** | **DateTime** | Date of Birth | [optional] 
-**member_id** | **string** | Foreign key to members | [optional] 
+**member_id** | **string** | Member token | [optional] 
 **name** | **string** | Full name of the Applicant | [optional] 
 **relationship** | **string** | Relationship of the Applicant to the Member | [optional] 
 **smoker** | **boolean** | Does the Applicant smoke? | [optional] 

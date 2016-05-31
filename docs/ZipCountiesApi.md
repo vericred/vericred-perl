@@ -9,36 +9,30 @@ All URIs are relative to *https://api.vericred.com/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**zip_counties_get**](ZipCountiesApi.md#zip_counties_get) | **GET** /zip_counties | Find Zip Counties by Zip Code
+[**get_zip_counties**](ZipCountiesApi.md#get_zip_counties) | **GET** /zip_counties | Search for Zip Counties
 
 
-# **zip_counties_get**
-> InlineResponse2002 zip_counties_get(zip_prefix => $zip_prefix)
+# **get_zip_counties**
+> ZipCountyResponse get_zip_counties(zip_prefix => $zip_prefix, vericred_api_key => $vericred_api_key)
 
-Find Zip Counties by Zip Code
+Search for Zip Counties
 
-### Finding Zip Code and Fips Code
-
-Our `Plan` endpoints require a zip code and a fips (county) code.  This is
-because plan pricing requires both of these elements.  Users are unlikely to
-know their fips code, so we provide this endpoint to look up a `ZipCounty` by
-zip code and return both the selected zip and fips codes.
-
-
+Our `Plan` endpoints require a zip code and a fips (county) code.  This is because plan pricing requires both of these elements.  Users are unlikely to know their fips code, so we provide this endpoint to look up a `ZipCounty` by zip code and return both the selected zip and fips codes.
 
 ### Example 
 ```perl
 use Data::Dumper;
 
 my $api_instance = VericredClient::ZipCountiesApi->new();
-my $zip_prefix = 'zip_prefix_example'; # string | Partial five-digit Zip
+my $zip_prefix = '1002'; # string | Partial five-digit Zip
+my $vericred_api_key = 'api-doc-key'; # string | API Key
 
 eval { 
-    my $result = $api_instance->zip_counties_get(zip_prefix => $zip_prefix);
+    my $result = $api_instance->get_zip_counties(zip_prefix => $zip_prefix, vericred_api_key => $vericred_api_key);
     print Dumper($result);
 };
 if ($@) {
-    warn "Exception when calling ZipCountiesApi->zip_counties_get: $@\n";
+    warn "Exception when calling ZipCountiesApi->get_zip_counties: $@\n";
 }
 ```
 
@@ -47,10 +41,11 @@ if ($@) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **zip_prefix** | **string**| Partial five-digit Zip | 
+ **vericred_api_key** | **string**| API Key | [optional] 
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**ZipCountyResponse**](ZipCountyResponse.md)
 
 ### Authorization
 

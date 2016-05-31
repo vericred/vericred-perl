@@ -24,17 +24,29 @@ use lib 'lib';
 use strict;
 use warnings;
 
-use_ok('VericredClient::DrugCoverageApi');
+use_ok('VericredClient::DrugsApi');
 
-my $api = VericredClient::DrugCoverageApi->new();
-isa_ok($api, 'VericredClient::DrugCoverageApi');
+my $api = VericredClient::DrugsApi->new();
+isa_ok($api, 'VericredClient::DrugsApi');
 
 #
-# drugs_ndc_coverages_get test
+# get_drug_coverages test
 #
 {
-    my $ndc = undef; # replace NULL with a proper value
-    my $result = $api->drugs_ndc_coverages_get(ndc => $ndc);
+    my $ndc_package_code = undef; # replace NULL with a proper value
+    my $audience = undef; # replace NULL with a proper value
+    my $state_code = undef; # replace NULL with a proper value
+    my $vericred_api_key = undef; # replace NULL with a proper value
+    my $result = $api->get_drug_coverages(ndc_package_code => $ndc_package_code, audience => $audience, state_code => $state_code, vericred_api_key => $vericred_api_key);
+}
+
+#
+# list_drugs test
+#
+{
+    my $search_term = undef; # replace NULL with a proper value
+    my $vericred_api_key = undef; # replace NULL with a proper value
+    my $result = $api->list_drugs(search_term => $search_term, vericred_api_key => $vericred_api_key);
 }
 
 

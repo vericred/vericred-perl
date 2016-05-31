@@ -104,24 +104,24 @@ __PACKAGE__->class_documentation({description => '',
 
 __PACKAGE__->method_documentation({
     'id' => {
-    	datatype => 'int',
+    	datatype => 'string',
     	base_name => 'id',
-    	description => 'Primary key',
+    	description => 'Name of the Rating Area',
     	format => '',
     	read_only => '',
     		},
     'state_id' => {
-    	datatype => 'int',
+    	datatype => 'string',
     	base_name => 'state_id',
-    	description => 'Foreign key to state',
+    	description => 'State Code',
     	format => '',
     	read_only => '',
     		},
 });
 
 __PACKAGE__->swagger_types( {
-    'id' => 'int',
-    'state_id' => 'int'
+    'id' => 'string',
+    'state_id' => 'string'
 } );
 
 __PACKAGE__->attribute_map( {

@@ -1,4 +1,4 @@
-package VericredClient::Object::Query;
+package VericredClient::Object::Meta;
 
 require 5.6.0;
 use strict;
@@ -98,89 +98,26 @@ sub _deserialize {
 
 
 __PACKAGE__->class_documentation({description => '',
-                                  class => 'Query',
+                                  class => 'Meta',
                                   required => [], # TODO
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'applicants' => {
-    	datatype => 'ARRAY[Applicant]',
-    	base_name => 'applicants',
-    	description => '',
-    	format => '',
-    	read_only => '',
-    		},
-    'enrollment_date' => {
-    	datatype => 'DateTime',
-    	base_name => 'enrollment_date',
-    	description => '',
-    	format => '',
-    	read_only => '',
-    		},
-    'fips_code' => {
-    	datatype => 'string',
-    	base_name => 'fips_code',
-    	description => '',
-    	format => '',
-    	read_only => '',
-    		},
-    'household_income' => {
-    	datatype => 'string',
-    	base_name => 'household_income',
-    	description => '',
-    	format => '',
-    	read_only => '',
-    		},
-    'household_size' => {
-    	datatype => 'string',
-    	base_name => 'household_size',
-    	description => '',
-    	format => '',
-    	read_only => '',
-    		},
-    'market' => {
-    	datatype => 'string',
-    	base_name => 'market',
-    	description => '',
-    	format => '',
-    	read_only => '',
-    		},
-    'providers' => {
-    	datatype => 'ARRAY[string]',
-    	base_name => 'providers',
-    	description => '',
-    	format => '',
-    	read_only => '',
-    		},
-    'zip_code' => {
-    	datatype => 'string',
-    	base_name => 'zip_code',
-    	description => '',
+    'total' => {
+    	datatype => 'int',
+    	base_name => 'total',
+    	description => 'Number of entities returned',
     	format => '',
     	read_only => '',
     		},
 });
 
 __PACKAGE__->swagger_types( {
-    'applicants' => 'ARRAY[Applicant]',
-    'enrollment_date' => 'DateTime',
-    'fips_code' => 'string',
-    'household_income' => 'string',
-    'household_size' => 'string',
-    'market' => 'string',
-    'providers' => 'ARRAY[string]',
-    'zip_code' => 'string'
+    'total' => 'int'
 } );
 
 __PACKAGE__->attribute_map( {
-    'applicants' => 'applicants',
-    'enrollment_date' => 'enrollment_date',
-    'fips_code' => 'fips_code',
-    'household_income' => 'household_income',
-    'household_size' => 'household_size',
-    'market' => 'market',
-    'providers' => 'providers',
-    'zip_code' => 'zip_code'
+    'total' => 'total'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

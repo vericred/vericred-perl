@@ -120,7 +120,7 @@ __PACKAGE__->method_documentation({
     'member_id' => {
     	datatype => 'string',
     	base_name => 'member_id',
-    	description => 'Foreign key to members',
+    	description => 'Member token',
     	format => '',
     	read_only => '',
     		},

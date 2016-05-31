@@ -110,9 +110,9 @@ __PACKAGE__->method_documentation({
     	format => '',
     	read_only => '',
     		},
-    'ndc_package_code' => {
+    'drug_package_id' => {
     	datatype => 'string',
-    	base_name => 'ndc_package_code',
+    	base_name => 'drug_package_id',
     	description => 'NDC package code',
     	format => '',
     	read_only => '',
@@ -149,7 +149,7 @@ __PACKAGE__->method_documentation({
 
 __PACKAGE__->swagger_types( {
     'plan_id' => 'string',
-    'ndc_package_code' => 'string',
+    'drug_package_id' => 'string',
     'tier' => 'string',
     'quantity_limit' => 'boolean',
     'prior_authorization' => 'boolean',
@@ -158,7 +158,7 @@ __PACKAGE__->swagger_types( {
 
 __PACKAGE__->attribute_map( {
     'plan_id' => 'plan_id',
-    'ndc_package_code' => 'ndc_package_code',
+    'drug_package_id' => 'drug_package_id',
     'tier' => 'tier',
     'quantity_limit' => 'quantity_limit',
     'prior_authorization' => 'prior_authorization',

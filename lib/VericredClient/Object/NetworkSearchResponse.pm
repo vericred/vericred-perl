@@ -1,4 +1,4 @@
-package VericredClient::Object::InlineResponse2001;
+package VericredClient::Object::NetworkSearchResponse;
 
 require 5.6.0;
 use strict;
@@ -98,26 +98,35 @@ sub _deserialize {
 
 
 __PACKAGE__->class_documentation({description => '',
-                                  class => 'InlineResponse2001',
+                                  class => 'NetworkSearchResponse',
                                   required => [], # TODO
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'provider' => {
-    	datatype => 'Provider',
-    	base_name => 'provider',
-    	description => '',
+    'meta' => {
+    	datatype => 'Meta',
+    	base_name => 'meta',
+    	description => 'Metadata for query',
+    	format => '',
+    	read_only => '',
+    		},
+    'networks' => {
+    	datatype => 'ARRAY[Network]',
+    	base_name => 'networks',
+    	description => 'Networks that fit the requested criterion.',
     	format => '',
     	read_only => '',
     		},
 });
 
 __PACKAGE__->swagger_types( {
-    'provider' => 'Provider'
+    'meta' => 'Meta',
+    'networks' => 'ARRAY[Network]'
 } );
 
 __PACKAGE__->attribute_map( {
-    'provider' => 'provider'
+    'meta' => 'meta',
+    'networks' => 'networks'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

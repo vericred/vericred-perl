@@ -30,11 +30,11 @@ my $api = VericredClient::PlansApi->new();
 isa_ok($api, 'VericredClient::PlansApi');
 
 #
-# plans_find_post test
+# find_plans test
 #
 {
-    my $query = undef; # replace NULL with a proper value
-    my $result = $api->plans_find_post(query => $query);
+    my $body = undef; # replace NULL with a proper value
+    my $result = $api->find_plans(body => $body);
 }
 
 

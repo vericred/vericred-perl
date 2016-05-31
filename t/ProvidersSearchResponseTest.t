@@ -9,9 +9,9 @@ use strict;
 use warnings;
 
 
-use_ok('VericredClient::Object::InlineResponse2001');
+use_ok('VericredClient::Object::ProvidersSearchResponse');
 
-my $instance = VericredClient::Object::InlineResponse2001->new();
+my $instance = VericredClient::Object::ProvidersSearchResponse->new();
 
-isa_ok($instance, 'VericredClient::Object::InlineResponse2001');
+isa_ok($instance, 'VericredClient::Object::ProvidersSearchResponse');
 

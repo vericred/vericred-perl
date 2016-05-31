@@ -131,8 +131,50 @@ __PACKAGE__->method_documentation({
     	format => '',
     	read_only => '',
     		},
+    'premium_child_only' => {
+    	datatype => 'Number',
+    	base_name => 'premium_child_only',
+    	description => 'Child-only premium',
+    	format => '',
+    	read_only => '',
+    		},
+    'premium_family' => {
+    	datatype => 'Number',
+    	base_name => 'premium_family',
+    	description => 'Family premium',
+    	format => '',
+    	read_only => '',
+    		},
+    'premium_single' => {
+    	datatype => 'Number',
+    	base_name => 'premium_single',
+    	description => 'Single-person premium',
+    	format => '',
+    	read_only => '',
+    		},
+    'premium_single_and_children' => {
+    	datatype => 'Number',
+    	base_name => 'premium_single_and_children',
+    	description => 'Single person including children premium',
+    	format => '',
+    	read_only => '',
+    		},
+    'premium_single_and_spouse' => {
+    	datatype => 'Number',
+    	base_name => 'premium_single_and_spouse',
+    	description => 'Person with spouse premium',
+    	format => '',
+    	read_only => '',
+    		},
+    'premium_single_smoker' => {
+    	datatype => 'Number',
+    	base_name => 'premium_single_smoker',
+    	description => 'Premium for single smoker',
+    	format => '',
+    	read_only => '',
+    		},
     'rating_area_id' => {
-    	datatype => 'int',
+    	datatype => 'string',
     	base_name => 'rating_area_id',
     	description => 'Foreign key to rating areas',
     	format => '',
@@ -145,7 +187,13 @@ __PACKAGE__->swagger_types( {
     'effective_date' => 'DateTime',
     'expiration_date' => 'DateTime',
     'plan_id' => 'int',
-    'rating_area_id' => 'int'
+    'premium_child_only' => 'Number',
+    'premium_family' => 'Number',
+    'premium_single' => 'Number',
+    'premium_single_and_children' => 'Number',
+    'premium_single_and_spouse' => 'Number',
+    'premium_single_smoker' => 'Number',
+    'rating_area_id' => 'string'
 } );
 
 __PACKAGE__->attribute_map( {
@@ -153,6 +201,12 @@ __PACKAGE__->attribute_map( {
     'effective_date' => 'effective_date',
     'expiration_date' => 'expiration_date',
     'plan_id' => 'plan_id',
+    'premium_child_only' => 'premium_child_only',
+    'premium_family' => 'premium_family',
+    'premium_single' => 'premium_single',
+    'premium_single_and_children' => 'premium_single_and_children',
+    'premium_single_and_spouse' => 'premium_single_and_spouse',
+    'premium_single_smoker' => 'premium_single_smoker',
     'rating_area_id' => 'rating_area_id'
 } );
 

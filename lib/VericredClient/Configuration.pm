@@ -7,7 +7,7 @@ use utf8;
 use Log::Any qw($log);
 use Carp;
 
-use constant VERSION => '0.0.1';
+use constant VERSION => '0.0.2';
 
 # class/static variables
 our $http_timeout = 180;
