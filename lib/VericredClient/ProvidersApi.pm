@@ -74,10 +74,10 @@ sub new {
     __PACKAGE__->method_documentation->{ get_provider } = { 
     	summary => 'Find a Provider',
         params => $params,
-        returns => 'Provider',
+        returns => 'ProviderShowResponse',
         };
 }
-# @return Provider
+# @return ProviderShowResponse
 #
 sub get_provider {
     my ($self, %args) = @_;
@@ -126,7 +126,7 @@ sub get_provider {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('Provider', $response);
+    my $_response_object = $self->{api_client}->deserialize('ProviderShowResponse', $response);
     return $_response_object;
 }
 
