@@ -110,6 +110,13 @@ __PACKAGE__->method_documentation({
     	format => '',
     	read_only => '',
     		},
+    'age29_rider' => {
+    	datatype => 'boolean',
+    	base_name => 'age29_rider',
+    	description => '',
+    	format => '',
+    	read_only => '',
+    		},
     'ambulance' => {
     	datatype => 'string',
     	base_name => 'ambulance',
@@ -180,6 +187,13 @@ __PACKAGE__->method_documentation({
     	format => '',
     	read_only => '',
     		},
+    'dp_rider' => {
+    	datatype => 'boolean',
+    	base_name => 'dp_rider',
+    	description => 'Is this a domestic plan?',
+    	format => '',
+    	read_only => '',
+    		},
     'drug_formulary_url' => {
     	datatype => 'string',
     	base_name => 'drug_formulary_url',
@@ -233,6 +247,13 @@ __PACKAGE__->method_documentation({
     	datatype => 'string',
     	base_name => 'family_medical_moop',
     	description => 'Maximum out-of-pocket when a family is on the plan',
+    	format => '',
+    	read_only => '',
+    		},
+    'fp_rider' => {
+    	datatype => 'boolean',
+    	base_name => 'fp_rider',
+    	description => 'Is this a family plan?',
     	format => '',
     	read_only => '',
     		},
@@ -541,6 +562,7 @@ __PACKAGE__->method_documentation({
 
 __PACKAGE__->swagger_types( {
     'adult_dental' => 'boolean',
+    'age29_rider' => 'boolean',
     'ambulance' => 'string',
     'benefits_summary_url' => 'string',
     'buy_link' => 'string',
@@ -551,6 +573,7 @@ __PACKAGE__->swagger_types( {
     'customer_service_phone_number' => 'string',
     'durable_medical_equipment' => 'string',
     'diagnostic_test' => 'string',
+    'dp_rider' => 'boolean',
     'drug_formulary_url' => 'string',
     'effective_date' => 'string',
     'expiration_date' => 'string',
@@ -559,6 +582,7 @@ __PACKAGE__->swagger_types( {
     'family_drug_moop' => 'string',
     'family_medical_deductible' => 'string',
     'family_medical_moop' => 'string',
+    'fp_rider' => 'boolean',
     'generic_drugs' => 'string',
     'habilitation_services' => 'string',
     'hios_issuer_id' => 'string',
@@ -606,6 +630,7 @@ __PACKAGE__->swagger_types( {
 
 __PACKAGE__->attribute_map( {
     'adult_dental' => 'adult_dental',
+    'age29_rider' => 'age29_rider',
     'ambulance' => 'ambulance',
     'benefits_summary_url' => 'benefits_summary_url',
     'buy_link' => 'buy_link',
@@ -616,6 +641,7 @@ __PACKAGE__->attribute_map( {
     'customer_service_phone_number' => 'customer_service_phone_number',
     'durable_medical_equipment' => 'durable_medical_equipment',
     'diagnostic_test' => 'diagnostic_test',
+    'dp_rider' => 'dp_rider',
     'drug_formulary_url' => 'drug_formulary_url',
     'effective_date' => 'effective_date',
     'expiration_date' => 'expiration_date',
@@ -624,6 +650,7 @@ __PACKAGE__->attribute_map( {
     'family_drug_moop' => 'family_drug_moop',
     'family_medical_deductible' => 'family_medical_deductible',
     'family_medical_moop' => 'family_medical_moop',
+    'fp_rider' => 'fp_rider',
     'generic_drugs' => 'generic_drugs',
     'habilitation_services' => 'habilitation_services',
     'hios_issuer_id' => 'hios_issuer_id',

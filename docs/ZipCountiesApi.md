@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **get_zip_counties**
-> ZipCountyResponse get_zip_counties(zip_prefix => $zip_prefix, vericred_api_key => $vericred_api_key)
+> ZipCountyResponse get_zip_counties(zip_prefix => $zip_prefix)
 
 Search for Zip Counties
 
@@ -23,12 +23,16 @@ Our `Plan` endpoints require a zip code and a fips (county) code.  This is becau
 ```perl
 use Data::Dumper;
 
+# Configure API key authorization: Vericred-Api-Key
+$VericredClient::Configuration::api_key->{'Vericred-Api-Key'} = 'YOUR_API_KEY';
+# uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+#$VericredClient::Configuration::api_key_prefix->{'Vericred-Api-Key'} = "BEARER";
+
 my $api_instance = VericredClient::ZipCountiesApi->new();
 my $zip_prefix = '1002'; # string | Partial five-digit Zip
-my $vericred_api_key = 'api-doc-key'; # string | API Key
 
 eval { 
-    my $result = $api_instance->get_zip_counties(zip_prefix => $zip_prefix, vericred_api_key => $vericred_api_key);
+    my $result = $api_instance->get_zip_counties(zip_prefix => $zip_prefix);
     print Dumper($result);
 };
 if ($@) {
@@ -41,7 +45,6 @@ if ($@) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **zip_prefix** | **string**| Partial five-digit Zip | 
- **vericred_api_key** | **string**| API Key | [optional] 
 
 ### Return type
 
@@ -49,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Vericred-Api-Key](../README.md#Vericred-Api-Key)
 
 ### HTTP request headers
 

@@ -36,8 +36,7 @@ isa_ok($api, 'VericredClient::DrugsApi');
     my $ndc_package_code = undef; # replace NULL with a proper value
     my $audience = undef; # replace NULL with a proper value
     my $state_code = undef; # replace NULL with a proper value
-    my $vericred_api_key = undef; # replace NULL with a proper value
-    my $result = $api->get_drug_coverages(ndc_package_code => $ndc_package_code, audience => $audience, state_code => $state_code, vericred_api_key => $vericred_api_key);
+    my $result = $api->get_drug_coverages(ndc_package_code => $ndc_package_code, audience => $audience, state_code => $state_code);
 }
 
 #
@@ -45,8 +44,7 @@ isa_ok($api, 'VericredClient::DrugsApi');
 #
 {
     my $search_term = undef; # replace NULL with a proper value
-    my $vericred_api_key = undef; # replace NULL with a proper value
-    my $result = $api->list_drugs(search_term => $search_term, vericred_api_key => $vericred_api_key);
+    my $result = $api->list_drugs(search_term => $search_term);
 }
 
 

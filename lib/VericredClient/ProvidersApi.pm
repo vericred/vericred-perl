@@ -57,18 +57,12 @@ sub new {
 # Find a Provider
 # 
 # @param string $npi NPI number (required)
-# @param string $vericred_api_key API Key (optional)
 {
     my $params = {
     'npi' => {
         data_type => 'string',
         description => 'NPI number',
         required => '1',
-    },
-    'vericred_api_key' => {
-        data_type => 'string',
-        description => 'API Key',
-        required => '0',
     },
     };
     __PACKAGE__->method_documentation->{ get_provider } = { 
@@ -103,11 +97,6 @@ sub get_provider {
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
-    # header params
-    if ( exists $args{'vericred_api_key'}) {
-        $header_params->{'Vericred-Api-Key'} = $self->{api_client}->to_header_value($args{'vericred_api_key'});
-    }
-
     # path params
     if ( exists $args{'npi'}) {
         my $_base_variable = "{" . "npi" . "}";
@@ -117,7 +106,7 @@ sub get_provider {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(Vericred-Api-Key )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -178,7 +167,7 @@ sub get_providers {
     }
 
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(Vericred-Api-Key )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,

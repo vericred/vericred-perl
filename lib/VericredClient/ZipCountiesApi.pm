@@ -57,18 +57,12 @@ sub new {
 # Search for Zip Counties
 # 
 # @param string $zip_prefix Partial five-digit Zip (required)
-# @param string $vericred_api_key API Key (optional)
 {
     my $params = {
     'zip_prefix' => {
         data_type => 'string',
         description => 'Partial five-digit Zip',
         required => '1',
-    },
-    'vericred_api_key' => {
-        data_type => 'string',
-        description => 'API Key',
-        required => '0',
     },
     };
     __PACKAGE__->method_documentation->{ get_zip_counties } = { 
@@ -108,14 +102,9 @@ sub get_zip_counties {
         $query_params->{'zip_prefix'} = $self->{api_client}->to_query_value($args{'zip_prefix'});
     }
 
-    # header params
-    if ( exists $args{'vericred_api_key'}) {
-        $header_params->{'Vericred-Api-Key'} = $self->{api_client}->to_header_value($args{'vericred_api_key'});
-    }
-
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(Vericred-Api-Key )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,

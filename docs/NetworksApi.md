@@ -13,23 +13,30 @@ Method | HTTP request | Description
 
 
 # **list_networks**
-> NetworkSearchResponse list_networks(carrier_id => $carrier_id)
+> NetworkSearchResponse list_networks(carrier_id => $carrier_id, page => $page, per_page => $per_page)
 
 Networks
 
 A network is a list of the doctors, other health care providers,
 and hospitals that a plan has contracted with to provide medical care to
-its members.
+its members. This endpoint is paginated.
 
 ### Example 
 ```perl
 use Data::Dumper;
 
+# Configure API key authorization: Vericred-Api-Key
+$VericredClient::Configuration::api_key->{'Vericred-Api-Key'} = 'YOUR_API_KEY';
+# uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+#$VericredClient::Configuration::api_key_prefix->{'Vericred-Api-Key'} = "BEARER";
+
 my $api_instance = VericredClient::NetworksApi->new();
 my $carrier_id = '33333'; # string | Carrier HIOS Issuer ID
+my $page = 1; # int | Page of paginated response
+my $per_page = 1; # int | Responses per page
 
 eval { 
-    my $result = $api_instance->list_networks(carrier_id => $carrier_id);
+    my $result = $api_instance->list_networks(carrier_id => $carrier_id, page => $page, per_page => $per_page);
     print Dumper($result);
 };
 if ($@) {
@@ -42,6 +49,8 @@ if ($@) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **carrier_id** | **string**| Carrier HIOS Issuer ID | 
+ **page** | **int**| Page of paginated response | [optional] 
+ **per_page** | **int**| Responses per page | [optional] 
 
 ### Return type
 
@@ -49,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Vericred-Api-Key](../README.md#Vericred-Api-Key)
 
 ### HTTP request headers
 
