@@ -319,7 +319,14 @@ sub update_params_for_auth {
         if (!defined($auth)) {
             # TODO show warning about auth setting not defined
         }
-                else {
+        elsif ($auth eq 'Vericred-Api-Key') {
+            
+            my $api_key = $self->get_api_key_with_prefix('Vericred-Api-Key');
+            if ($api_key) {
+                $header_params->{'Vericred-Api-Key'} = $api_key;
+            }
+        }
+        else {
        	    # TODO show warning about security definition not found
         }
     }

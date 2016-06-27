@@ -103,13 +103,6 @@ __PACKAGE__->class_documentation({description => '',
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'id' => {
-    	datatype => 'int',
-    	base_name => 'id',
-    	description => 'Primary key',
-    	format => '',
-    	read_only => '',
-    		},
     'plan_id' => {
     	datatype => 'int',
     	base_name => 'plan_id',
@@ -127,13 +120,11 @@ __PACKAGE__->method_documentation({
 });
 
 __PACKAGE__->swagger_types( {
-    'id' => 'int',
     'plan_id' => 'int',
     'county_id' => 'int'
 } );
 
 __PACKAGE__->attribute_map( {
-    'id' => 'id',
     'plan_id' => 'plan_id',
     'county_id' => 'county_id'
 } );

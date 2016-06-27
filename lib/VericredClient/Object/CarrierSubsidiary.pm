@@ -117,16 +117,25 @@ __PACKAGE__->method_documentation({
     	format => '',
     	read_only => '',
     		},
+    'alternate_name' => {
+    	datatype => 'string',
+    	base_name => 'alternate_name',
+    	description => 'Parent Carrier Name',
+    	format => '',
+    	read_only => '',
+    		},
 });
 
 __PACKAGE__->swagger_types( {
     'id' => 'int',
-    'name' => 'string'
+    'name' => 'string',
+    'alternate_name' => 'string'
 } );
 
 __PACKAGE__->attribute_map( {
     'id' => 'id',
-    'name' => 'name'
+    'name' => 'name',
+    'alternate_name' => 'alternate_name'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

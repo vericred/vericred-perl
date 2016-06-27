@@ -34,7 +34,9 @@ isa_ok($api, 'VericredClient::NetworksApi');
 #
 {
     my $carrier_id = undef; # replace NULL with a proper value
-    my $result = $api->list_networks(carrier_id => $carrier_id);
+    my $page = undef; # replace NULL with a proper value
+    my $per_page = undef; # replace NULL with a proper value
+    my $result = $api->list_networks(carrier_id => $carrier_id, page => $page, per_page => $per_page);
 }
 
 

@@ -59,7 +59,6 @@ sub new {
 # @param string $ndc_package_code NDC package code (required)
 # @param string $audience Two-character state code (required)
 # @param string $state_code Two-character state code (required)
-# @param string $vericred_api_key API Key (optional)
 {
     my $params = {
     'ndc_package_code' => {
@@ -76,11 +75,6 @@ sub new {
         data_type => 'string',
         description => 'Two-character state code',
         required => '1',
-    },
-    'vericred_api_key' => {
-        data_type => 'string',
-        description => 'API Key',
-        required => '0',
     },
     };
     __PACKAGE__->method_documentation->{ get_drug_coverages } = { 
@@ -135,11 +129,6 @@ sub get_drug_coverages {
         $query_params->{'state_code'} = $self->{api_client}->to_query_value($args{'state_code'});
     }
 
-    # header params
-    if ( exists $args{'vericred_api_key'}) {
-        $header_params->{'Vericred-Api-Key'} = $self->{api_client}->to_header_value($args{'vericred_api_key'});
-    }
-
     # path params
     if ( exists $args{'ndc_package_code'}) {
         my $_base_variable = "{" . "ndc_package_code" . "}";
@@ -149,7 +138,7 @@ sub get_drug_coverages {
 
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(Vericred-Api-Key )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
@@ -168,18 +157,12 @@ sub get_drug_coverages {
 # Drug Search
 # 
 # @param string $search_term Full or partial proprietary name of drug (required)
-# @param string $vericred_api_key API Key (optional)
 {
     my $params = {
     'search_term' => {
         data_type => 'string',
         description => 'Full or partial proprietary name of drug',
         required => '1',
-    },
-    'vericred_api_key' => {
-        data_type => 'string',
-        description => 'API Key',
-        required => '0',
     },
     };
     __PACKAGE__->method_documentation->{ list_drugs } = { 
@@ -219,14 +202,9 @@ sub list_drugs {
         $query_params->{'search_term'} = $self->{api_client}->to_query_value($args{'search_term'});
     }
 
-    # header params
-    if ( exists $args{'vericred_api_key'}) {
-        $header_params->{'Vericred-Api-Key'} = $self->{api_client}->to_header_value($args{'vericred_api_key'});
-    }
-
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(Vericred-Api-Key )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,

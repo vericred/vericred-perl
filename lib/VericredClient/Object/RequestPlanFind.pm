@@ -159,6 +159,27 @@ __PACKAGE__->method_documentation({
     	format => '',
     	read_only => '',
     		},
+    'page' => {
+    	datatype => 'int',
+    	base_name => 'page',
+    	description => 'Selected page of paginated response.',
+    	format => '',
+    	read_only => '',
+    		},
+    'per_page' => {
+    	datatype => 'int',
+    	base_name => 'per_page',
+    	description => 'Results per page of response.',
+    	format => '',
+    	read_only => '',
+    		},
+    'sort' => {
+    	datatype => 'string',
+    	base_name => 'sort',
+    	description => 'Sort responses by plan field.',
+    	format => '',
+    	read_only => '',
+    		},
     'zip_code' => {
     	datatype => 'string',
     	base_name => 'zip_code',
@@ -177,6 +198,9 @@ __PACKAGE__->swagger_types( {
     'household_size' => 'int',
     'market' => 'string',
     'providers' => 'ARRAY[RequestPlanFindProvider]',
+    'page' => 'int',
+    'per_page' => 'int',
+    'sort' => 'string',
     'zip_code' => 'string'
 } );
 
@@ -189,6 +213,9 @@ __PACKAGE__->attribute_map( {
     'household_size' => 'household_size',
     'market' => 'market',
     'providers' => 'providers',
+    'page' => 'page',
+    'per_page' => 'per_page',
+    'sort' => 'sort',
     'zip_code' => 'zip_code'
 } );
 

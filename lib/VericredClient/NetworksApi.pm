@@ -57,12 +57,24 @@ sub new {
 # Networks
 # 
 # @param string $carrier_id Carrier HIOS Issuer ID (required)
+# @param int $page Page of paginated response (optional)
+# @param int $per_page Responses per page (optional)
 {
     my $params = {
     'carrier_id' => {
         data_type => 'string',
         description => 'Carrier HIOS Issuer ID',
         required => '1',
+    },
+    'page' => {
+        data_type => 'int',
+        description => 'Page of paginated response',
+        required => '0',
+    },
+    'per_page' => {
+        data_type => 'int',
+        description => 'Responses per page',
+        required => '0',
     },
     };
     __PACKAGE__->method_documentation->{ list_networks } = { 
@@ -102,9 +114,19 @@ sub list_networks {
         $query_params->{'carrier_id'} = $self->{api_client}->to_query_value($args{'carrier_id'});
     }
 
+    # query params
+    if ( exists $args{'page'}) {
+        $query_params->{'page'} = $self->{api_client}->to_query_value($args{'page'});
+    }
+
+    # query params
+    if ( exists $args{'per_page'}) {
+        $query_params->{'per_page'} = $self->{api_client}->to_query_value($args{'per_page'});
+    }
+
     my $_body_data;
     # authentication setting, if any
-    my $auth_settings = [qw()];
+    my $auth_settings = [qw(Vericred-Api-Key )];
 
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,

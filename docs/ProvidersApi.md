@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **get_provider**
-> ProviderShowResponse get_provider(npi => $npi, vericred_api_key => $vericred_api_key)
+> ProviderShowResponse get_provider(npi => $npi)
 
 Find a Provider
 
@@ -24,12 +24,16 @@ To retrieve a specific provider, just perform a GET using his NPI number
 ```perl
 use Data::Dumper;
 
+# Configure API key authorization: Vericred-Api-Key
+$VericredClient::Configuration::api_key->{'Vericred-Api-Key'} = 'YOUR_API_KEY';
+# uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+#$VericredClient::Configuration::api_key_prefix->{'Vericred-Api-Key'} = "BEARER";
+
 my $api_instance = VericredClient::ProvidersApi->new();
 my $npi = '1234567890'; # string | NPI number
-my $vericred_api_key = 'api-doc-key'; # string | API Key
 
 eval { 
-    my $result = $api_instance->get_provider(npi => $npi, vericred_api_key => $vericred_api_key);
+    my $result = $api_instance->get_provider(npi => $npi);
     print Dumper($result);
 };
 if ($@) {
@@ -42,7 +46,6 @@ if ($@) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **npi** | **string**| NPI number | 
- **vericred_api_key** | **string**| API Key | [optional] 
 
 ### Return type
 
@@ -50,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Vericred-Api-Key](../README.md#Vericred-Api-Key)
 
 ### HTTP request headers
 
@@ -83,6 +86,11 @@ Specialty name search.  So, searching "John Smith nose" would return
 ```perl
 use Data::Dumper;
 
+# Configure API key authorization: Vericred-Api-Key
+$VericredClient::Configuration::api_key->{'Vericred-Api-Key'} = 'YOUR_API_KEY';
+# uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+#$VericredClient::Configuration::api_key_prefix->{'Vericred-Api-Key'} = "BEARER";
+
 my $api_instance = VericredClient::ProvidersApi->new();
 my $body = VericredClient::Object::RequestProvidersSearch->new(); # RequestProvidersSearch | 
 
@@ -107,7 +115,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Vericred-Api-Key](../README.md#Vericred-Api-Key)
 
 ### HTTP request headers
 
