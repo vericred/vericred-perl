@@ -9,6 +9,7 @@ use VericredClient::Object::PlanSearchResult;
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **adult_dental** | **boolean** | Does the plan provide dental coverage for adults? | [optional] 
+**age29_rider** | **boolean** |  | [optional] 
 **ambulance** | **string** | Benefits string for ambulance coverage | [optional] 
 **benefits_summary_url** | **string** | Link to the summary of benefits and coverage (SBC) document. | [optional] 
 **buy_link** | **string** | Link to a location to purchase the plan. | [optional] 
@@ -19,6 +20,7 @@ Name | Type | Description | Notes
 **customer_service_phone_number** | **string** | Phone number to contact the insurance carrier | [optional] 
 **durable_medical_equipment** | **string** | Benefits summary for durable medical equipment | [optional] 
 **diagnostic_test** | **string** | Diagnostic tests benefit summary | [optional] 
+**dp_rider** | **boolean** | Is this a domestic plan? | [optional] 
 **drug_formulary_url** | **string** | Link to the summary of drug benefits for the plan | [optional] 
 **effective_date** | **string** | Effective date of coverage. | [optional] 
 **expiration_date** | **string** | Expiration date of coverage. | [optional] 
@@ -27,6 +29,7 @@ Name | Type | Description | Notes
 **family_drug_moop** | **string** | Maximum out-of-pocket for drugs when a family is on the plan | [optional] 
 **family_medical_deductible** | **string** | Deductible when a family is on the plan | [optional] 
 **family_medical_moop** | **string** | Maximum out-of-pocket when a family is on the plan | [optional] 
+**fp_rider** | **boolean** | Is this a family plan? | [optional] 
 **generic_drugs** | **string** | Cost for generic drugs | [optional] 
 **habilitation_services** | **string** | Habilitation services benefits summary | [optional] 
 **hios_issuer_id** | **string** |  | [optional] 

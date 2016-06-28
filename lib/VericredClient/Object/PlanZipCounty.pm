@@ -136,7 +136,7 @@ limitations under the License.
 # Do not edit the class manually.
 # Ref: https://github.com/swagger-api/swagger-codegen
 #
-package VericredClient::Object::PlanCountyBulk;
+package VericredClient::Object::PlanZipCounty;
 
 require 5.6.0;
 use strict;
@@ -375,7 +375,7 @@ sub _deserialize {
 
 
 __PACKAGE__->class_documentation({description => '',
-                                  class => 'PlanCountyBulk',
+                                  class => 'PlanZipCounty',
                                   required => [], # TODO
 }                                 );
 
@@ -394,16 +394,25 @@ __PACKAGE__->method_documentation({
     	format => '',
     	read_only => '',
     		},
+    'zip_code_id' => {
+    	datatype => 'int',
+    	base_name => 'zip_code_id',
+    	description => 'Foreign key to zip code',
+    	format => '',
+    	read_only => '',
+    		},
 });
 
 __PACKAGE__->swagger_types( {
     'plan_id' => 'int',
-    'county_id' => 'int'
+    'county_id' => 'int',
+    'zip_code_id' => 'int'
 } );
 
 __PACKAGE__->attribute_map( {
     'plan_id' => 'plan_id',
-    'county_id' => 'county_id'
+    'county_id' => 'county_id',
+    'zip_code_id' => 'zip_code_id'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});
