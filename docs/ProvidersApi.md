@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **get_provider**
-> ProviderShowResponse get_provider(npi => $npi)
+> ProviderShowResponse get_provider(npi => $npi, year => $year, state => $state)
 
 Find a Provider
 
@@ -31,9 +31,11 @@ $VericredClient::Configuration::api_key->{'Vericred-Api-Key'} = 'YOUR_API_KEY';
 
 my $api_instance = VericredClient::ProvidersApi->new();
 my $npi = '1234567890'; # string | NPI number
+my $year = '2016'; # string | Only show plan ids for the given year
+my $state = 'NY'; # string | Only show plan ids for the given state
 
 eval { 
-    my $result = $api_instance->get_provider(npi => $npi);
+    my $result = $api_instance->get_provider(npi => $npi, year => $year, state => $state);
     print Dumper($result);
 };
 if ($@) {
@@ -46,6 +48,8 @@ if ($@) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **npi** | **string**| NPI number | 
+ **year** | **string**| Only show plan ids for the given year | [optional] 
+ **state** | **string**| Only show plan ids for the given state | [optional] 
 
 ### Return type
 

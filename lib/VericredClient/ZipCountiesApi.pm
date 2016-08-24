@@ -184,7 +184,7 @@ sub new {
         required => '1',
     },
     };
-    __PACKAGE__->method_documentation->{ get_zip_counties } = { 
+    __PACKAGE__->method_documentation->{ 'get_zip_counties' } = { 
     	summary => 'Search for Zip Counties',
         params => $params,
         returns => 'ZipCountyResponse',

@@ -136,7 +136,7 @@ limitations under the License.
 # Do not edit the class manually.
 # Ref: https://github.com/swagger-api/swagger-codegen
 #
-package VericredClient::Object::PlanZipCounty;
+package VericredClient::Object::ServiceArea;
 
 require 5.6.0;
 use strict;
@@ -375,44 +375,44 @@ sub _deserialize {
 
 
 __PACKAGE__->class_documentation({description => '',
-                                  class => 'PlanZipCounty',
+                                  class => 'ServiceArea',
                                   required => [], # TODO
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'plan_id' => {
-    	datatype => 'int',
-    	base_name => 'plan_id',
-    	description => 'Foreign key to plan',
+    'id' => {
+    	datatype => 'string',
+    	base_name => 'id',
+    	description => 'Primary key',
     	format => '',
     	read_only => '',
     		},
-    'county_id' => {
-    	datatype => 'int',
-    	base_name => 'county_id',
-    	description => 'Foreign key to county',
+    'issuer_id' => {
+    	datatype => 'string',
+    	base_name => 'issuer_id',
+    	description => 'Issuer foreign key',
     	format => '',
     	read_only => '',
     		},
-    'zip_code_id' => {
-    	datatype => 'int',
-    	base_name => 'zip_code_id',
-    	description => 'Foreign key to zip code',
+    'name' => {
+    	datatype => 'string',
+    	base_name => 'name',
+    	description => 'Name of the Service Area',
     	format => '',
     	read_only => '',
     		},
 });
 
 __PACKAGE__->swagger_types( {
-    'plan_id' => 'int',
-    'county_id' => 'int',
-    'zip_code_id' => 'int'
+    'id' => 'string',
+    'issuer_id' => 'string',
+    'name' => 'string'
 } );
 
 __PACKAGE__->attribute_map( {
-    'plan_id' => 'plan_id',
-    'county_id' => 'county_id',
-    'zip_code_id' => 'zip_code_id'
+    'id' => 'id',
+    'issuer_id' => 'issuer_id',
+    'name' => 'name'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

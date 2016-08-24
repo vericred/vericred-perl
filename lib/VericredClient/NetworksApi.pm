@@ -196,7 +196,7 @@ sub new {
         required => '0',
     },
     };
-    __PACKAGE__->method_documentation->{ list_networks } = { 
+    __PACKAGE__->method_documentation->{ 'list_networks' } = { 
     	summary => 'Networks',
         params => $params,
         returns => 'NetworkSearchResponse',

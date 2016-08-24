@@ -176,6 +176,8 @@ sub new {
 # Find a Provider
 # 
 # @param string $npi NPI number (required)
+# @param string $year Only show plan ids for the given year (optional)
+# @param string $state Only show plan ids for the given state (optional)
 {
     my $params = {
     'npi' => {
@@ -183,8 +185,18 @@ sub new {
         description => 'NPI number',
         required => '1',
     },
+    'year' => {
+        data_type => 'string',
+        description => 'Only show plan ids for the given year',
+        required => '0',
+    },
+    'state' => {
+        data_type => 'string',
+        description => 'Only show plan ids for the given state',
+        required => '0',
+    },
     };
-    __PACKAGE__->method_documentation->{ get_provider } = { 
+    __PACKAGE__->method_documentation->{ 'get_provider' } = { 
     	summary => 'Find a Provider',
         params => $params,
         returns => 'ProviderShowResponse',
@@ -215,6 +227,16 @@ sub get_provider {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
+
+    # query params
+    if ( exists $args{'year'}) {
+        $query_params->{'year'} = $self->{api_client}->to_query_value($args{'year'});
+    }
+
+    # query params
+    if ( exists $args{'state'}) {
+        $query_params->{'state'} = $self->{api_client}->to_query_value($args{'state'});
+    }
 
     # path params
     if ( exists $args{'npi'}) {
@@ -252,7 +274,7 @@ sub get_provider {
         required => '0',
     },
     };
-    __PACKAGE__->method_documentation->{ get_providers } = { 
+    __PACKAGE__->method_documentation->{ 'get_providers' } = { 
     	summary => 'Find Providers',
         params => $params,
         returns => 'ProvidersSearchResponse',

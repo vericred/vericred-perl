@@ -144,9 +144,9 @@ use strict;
 use warnings;
 
 
-use_ok('VericredClient::Object::PlanZipCounty');
+use_ok('VericredClient::Object::ServiceAreaZipCounty');
 
-my $instance = VericredClient::Object::PlanZipCounty->new();
+my $instance = VericredClient::Object::ServiceAreaZipCounty->new();
 
-isa_ok($instance, 'VericredClient::Object::PlanZipCounty');
+isa_ok($instance, 'VericredClient::Object::ServiceAreaZipCounty');
 

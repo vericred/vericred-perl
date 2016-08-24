@@ -10,6 +10,7 @@ All URIs are relative to *https://api.vericred.com/*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**find_plans**](PlansApi.md#find_plans) | **POST** /plans/search | Find Plans
+[**show_plan**](PlansApi.md#show_plan) | **GET** /plans/{id} | Show Plan
 
 
 # **find_plans**
@@ -58,6 +59,55 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **show_plan**
+> PlanShowResponse show_plan(year => $year)
+
+Show Plan
+
+Show the details of an individual Plan.  This includes deductibles, maximums out of pocket, and co-pay/coinsurance for benefits
+
+### Example 
+```perl
+use Data::Dumper;
+
+# Configure API key authorization: Vericred-Api-Key
+$VericredClient::Configuration::api_key->{'Vericred-Api-Key'} = 'YOUR_API_KEY';
+# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+#$VericredClient::Configuration::api_key_prefix->{'Vericred-Api-Key'} = "Bearer";
+
+my $api_instance = VericredClient::PlansApi->new();
+my $year = 2016; # int | Plan year (defaults to current year)
+
+eval { 
+    my $result = $api_instance->show_plan(year => $year);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling PlansApi->show_plan: $@\n";
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **year** | **int**| Plan year (defaults to current year) | [optional] 
+
+### Return type
+
+[**PlanShowResponse**](PlanShowResponse.md)
+
+### Authorization
+
+[Vericred-Api-Key](../README.md#Vericred-Api-Key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

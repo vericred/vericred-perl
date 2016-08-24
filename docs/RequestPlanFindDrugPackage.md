@@ -1,16 +1,14 @@
-# VericredClient::Object::PlanZipCounty
+# VericredClient::Object::RequestPlanFindDrugPackage
 
 ## Load the model package
 ```perl
-use VericredClient::Object::PlanZipCounty;
+use VericredClient::Object::RequestPlanFindDrugPackage;
 ```
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**plan_id** | **int** | Foreign key to plan | [optional] 
-**county_id** | **int** | Foreign key to county | [optional] 
-**zip_code_id** | **int** | Foreign key to zip code | [optional] 
+**id** | **string** | National Drug Code ID (Package) | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

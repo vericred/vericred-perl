@@ -394,6 +394,13 @@ __PACKAGE__->method_documentation({
     	format => '',
     	read_only => '',
     		},
+    'min_score' => {
+    	datatype => 'Number',
+    	base_name => 'min_score',
+    	description => 'Minimum search threshold to be included in the results',
+    	format => '',
+    	read_only => '',
+    		},
     'page' => {
     	datatype => 'int',
     	base_name => 'page',
@@ -441,6 +448,7 @@ __PACKAGE__->method_documentation({
 __PACKAGE__->swagger_types( {
     'accepts_insurance' => 'boolean',
     'hios_ids' => 'ARRAY[string]',
+    'min_score' => 'Number',
     'page' => 'int',
     'per_page' => 'int',
     'radius' => 'int',
@@ -452,6 +460,7 @@ __PACKAGE__->swagger_types( {
 __PACKAGE__->attribute_map( {
     'accepts_insurance' => 'accepts_insurance',
     'hios_ids' => 'hios_ids',
+    'min_score' => 'min_score',
     'page' => 'page',
     'per_page' => 'per_page',
     'radius' => 'radius',
