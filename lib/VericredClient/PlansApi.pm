@@ -184,7 +184,7 @@ sub new {
         required => '0',
     },
     };
-    __PACKAGE__->method_documentation->{ find_plans } = { 
+    __PACKAGE__->method_documentation->{ 'find_plans' } = { 
     	summary => 'Find Plans',
         params => $params,
         returns => 'PlanSearchResponse',
@@ -228,6 +228,67 @@ sub find_plans {
         return;
     }
     my $_response_object = $self->{api_client}->deserialize('PlanSearchResponse', $response);
+    return $_response_object;
+}
+
+#
+# show_plan
+#
+# Show Plan
+# 
+# @param int $year Plan year (defaults to current year) (optional)
+{
+    my $params = {
+    'year' => {
+        data_type => 'int',
+        description => 'Plan year (defaults to current year)',
+        required => '0',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'show_plan' } = { 
+    	summary => 'Show Plan',
+        params => $params,
+        returns => 'PlanShowResponse',
+        };
+}
+# @return PlanShowResponse
+#
+sub show_plan {
+    my ($self, %args) = @_;
+
+    # parse inputs
+    my $_resource_path = '/plans/{id}';
+    $_resource_path =~ s/{format}/json/; # default format to json
+
+    my $_method = 'GET';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('application/json');
+
+    # query params
+    if ( exists $args{'year'}) {
+        $query_params->{'year'} = $self->{api_client}->to_query_value($args{'year'});
+    }
+
+    my $_body_data;
+    # authentication setting, if any
+    my $auth_settings = [qw(Vericred-Api-Key )];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('PlanShowResponse', $response);
     return $_response_object;
 }
 

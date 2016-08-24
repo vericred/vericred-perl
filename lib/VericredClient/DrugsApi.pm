@@ -196,7 +196,7 @@ sub new {
         required => '1',
     },
     };
-    __PACKAGE__->method_documentation->{ get_drug_coverages } = { 
+    __PACKAGE__->method_documentation->{ 'get_drug_coverages' } = { 
     	summary => 'Search for DrugCoverages',
         params => $params,
         returns => 'DrugCoverageResponse',
@@ -284,7 +284,7 @@ sub get_drug_coverages {
         required => '1',
     },
     };
-    __PACKAGE__->method_documentation->{ list_drugs } = { 
+    __PACKAGE__->method_documentation->{ 'list_drugs' } = { 
     	summary => 'Drug Search',
         params => $params,
         returns => 'DrugSearchResponse',

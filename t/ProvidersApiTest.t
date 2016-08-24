@@ -153,7 +153,9 @@ isa_ok($api, 'VericredClient::ProvidersApi');
 #
 {
     my $npi = undef; # replace NULL with a proper value
-    my $result = $api->get_provider(npi => $npi);
+    my $year = undef; # replace NULL with a proper value
+    my $state = undef; # replace NULL with a proper value
+    my $result = $api->get_provider(npi => $npi, year => $year, state => $state);
 }
 
 #

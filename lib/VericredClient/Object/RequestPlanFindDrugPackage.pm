@@ -136,7 +136,7 @@ limitations under the License.
 # Do not edit the class manually.
 # Ref: https://github.com/swagger-api/swagger-codegen
 #
-package VericredClient::Object::CountyBulk;
+package VericredClient::Object::RequestPlanFindDrugPackage;
 
 require 5.6.0;
 use strict;
@@ -375,7 +375,7 @@ sub _deserialize {
 
 
 __PACKAGE__->class_documentation({description => '',
-                                  class => 'CountyBulk',
+                                  class => 'RequestPlanFindDrugPackage',
                                   required => [], # TODO
 }                                 );
 
@@ -383,54 +383,18 @@ __PACKAGE__->method_documentation({
     'id' => {
     	datatype => 'string',
     	base_name => 'id',
-    	description => 'FIPs code for the county',
-    	format => '',
-    	read_only => '',
-    		},
-    'name' => {
-    	datatype => 'string',
-    	base_name => 'name',
-    	description => 'Name of the county',
-    	format => '',
-    	read_only => '',
-    		},
-    'state_id' => {
-    	datatype => 'string',
-    	base_name => 'state_id',
-    	description => 'State code',
-    	format => '',
-    	read_only => '',
-    		},
-    'rating_area_count' => {
-    	datatype => 'string',
-    	base_name => 'rating_area_count',
-    	description => 'Count of unique rating areas in the county',
-    	format => '',
-    	read_only => '',
-    		},
-    'service_area_count' => {
-    	datatype => 'string',
-    	base_name => 'service_area_count',
-    	description => 'Count of unique service areas in the county',
+    	description => 'National Drug Code ID (Package)',
     	format => '',
     	read_only => '',
     		},
 });
 
 __PACKAGE__->swagger_types( {
-    'id' => 'string',
-    'name' => 'string',
-    'state_id' => 'string',
-    'rating_area_count' => 'string',
-    'service_area_count' => 'string'
+    'id' => 'string'
 } );
 
 __PACKAGE__->attribute_map( {
-    'id' => 'id',
-    'name' => 'name',
-    'state_id' => 'state_id',
-    'rating_area_count' => 'rating_area_count',
-    'service_area_count' => 'service_area_count'
+    'id' => 'id'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});
