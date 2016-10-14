@@ -136,7 +136,7 @@ limitations under the License.
 # Do not edit the class manually.
 # Ref: https://github.com/swagger-api/swagger-codegen
 #
-package VericredClient::Object::RequestPlanFindDrugPackage;
+package VericredClient::Object::StateNetworkSizeResponse;
 
 require 5.6.0;
 use strict;
@@ -375,35 +375,35 @@ sub _deserialize {
 
 
 __PACKAGE__->class_documentation({description => '',
-                                  class => 'RequestPlanFindDrugPackage',
+                                  class => 'StateNetworkSizeResponse',
                                   required => [], # TODO
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'id' => {
-    	datatype => 'string',
-    	base_name => 'id',
-    	description => 'National Drug Code ID (Package)',
+    'meta' => {
+    	datatype => 'Meta',
+    	base_name => 'meta',
+    	description => 'Meta-data',
     	format => '',
     	read_only => '',
     		},
-    'med_id' => {
-    	datatype => 'int',
-    	base_name => 'med_id',
-    	description => 'Med ID, mutually exclusive with id',
+    'network_sizes' => {
+    	datatype => 'ARRAY[NetworkSize]',
+    	base_name => 'network_sizes',
+    	description => 'Network Sizes',
     	format => '',
     	read_only => '',
     		},
 });
 
 __PACKAGE__->swagger_types( {
-    'id' => 'string',
-    'med_id' => 'int'
+    'meta' => 'Meta',
+    'network_sizes' => 'ARRAY[NetworkSize]'
 } );
 
 __PACKAGE__->attribute_map( {
-    'id' => 'id',
-    'med_id' => 'med_id'
+    'meta' => 'meta',
+    'network_sizes' => 'network_sizes'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

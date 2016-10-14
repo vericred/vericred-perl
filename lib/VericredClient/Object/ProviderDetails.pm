@@ -136,7 +136,7 @@ limitations under the License.
 # Do not edit the class manually.
 # Ref: https://github.com/swagger-api/swagger-codegen
 #
-package VericredClient::Object::RequestPlanFindDrugPackage;
+package VericredClient::Object::ProviderDetails;
 
 require 5.6.0;
 use strict;
@@ -375,35 +375,278 @@ sub _deserialize {
 
 
 __PACKAGE__->class_documentation({description => '',
-                                  class => 'RequestPlanFindDrugPackage',
+                                  class => 'ProviderDetails',
                                   required => [], # TODO
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'id' => {
-    	datatype => 'string',
-    	base_name => 'id',
-    	description => 'National Drug Code ID (Package)',
+    'accepting_change_of_payor_patients' => {
+    	datatype => 'boolean',
+    	base_name => 'accepting_change_of_payor_patients',
+    	description => 'Is this provider accepting patients with a change of insurance?',
     	format => '',
     	read_only => '',
     		},
-    'med_id' => {
+    'accepting_medicaid_patients' => {
+    	datatype => 'boolean',
+    	base_name => 'accepting_medicaid_patients',
+    	description => 'Is this provider accepting new Medicaid patients?',
+    	format => '',
+    	read_only => '',
+    		},
+    'accepting_medicare_patients' => {
+    	datatype => 'boolean',
+    	base_name => 'accepting_medicare_patients',
+    	description => 'Is this provider accepting new Medicare patients?',
+    	format => '',
+    	read_only => '',
+    		},
+    'accepting_private_patients' => {
+    	datatype => 'boolean',
+    	base_name => 'accepting_private_patients',
+    	description => 'Is this provider accepting new patients with private insurance?',
+    	format => '',
+    	read_only => '',
+    		},
+    'accepting_referral_patients' => {
+    	datatype => 'boolean',
+    	base_name => 'accepting_referral_patients',
+    	description => 'Is this provider accepting new patients via referrals?',
+    	format => '',
+    	read_only => '',
+    		},
+    'city' => {
+    	datatype => 'string',
+    	base_name => 'city',
+    	description => 'City name (e.g. Springfield).',
+    	format => '',
+    	read_only => '',
+    		},
+    'email' => {
+    	datatype => 'string',
+    	base_name => 'email',
+    	description => 'Primary email address to contact the provider.',
+    	format => '',
+    	read_only => '',
+    		},
+    'gender' => {
+    	datatype => 'string',
+    	base_name => 'gender',
+    	description => 'Provider&#39;s gender (M or F)',
+    	format => '',
+    	read_only => '',
+    		},
+    'first_name' => {
+    	datatype => 'string',
+    	base_name => 'first_name',
+    	description => 'Given name for the provider.',
+    	format => '',
+    	read_only => '',
+    		},
+    'id' => {
     	datatype => 'int',
-    	base_name => 'med_id',
-    	description => 'Med ID, mutually exclusive with id',
+    	base_name => 'id',
+    	description => 'National Provider Index (NPI) number',
+    	format => '',
+    	read_only => '',
+    		},
+    'last_name' => {
+    	datatype => 'string',
+    	base_name => 'last_name',
+    	description => 'Family name for the provider.',
+    	format => '',
+    	read_only => '',
+    		},
+    'latitude' => {
+    	datatype => 'Number',
+    	base_name => 'latitude',
+    	description => 'Latitude of provider',
+    	format => '',
+    	read_only => '',
+    		},
+    'longitude' => {
+    	datatype => 'Number',
+    	base_name => 'longitude',
+    	description => 'Longitude of provider',
+    	format => '',
+    	read_only => '',
+    		},
+    'middle_name' => {
+    	datatype => 'string',
+    	base_name => 'middle_name',
+    	description => 'Middle name for the provider.',
+    	format => '',
+    	read_only => '',
+    		},
+    'network_ids' => {
+    	datatype => 'ARRAY[int]',
+    	base_name => 'network_ids',
+    	description => 'Array of network ids',
+    	format => '',
+    	read_only => '',
+    		},
+    'organization_name' => {
+    	datatype => 'string',
+    	base_name => 'organization_name',
+    	description => 'name for the providers of type: organization.',
+    	format => '',
+    	read_only => '',
+    		},
+    'personal_phone' => {
+    	datatype => 'string',
+    	base_name => 'personal_phone',
+    	description => 'Personal contact phone for the provider.',
+    	format => '',
+    	read_only => '',
+    		},
+    'phone' => {
+    	datatype => 'string',
+    	base_name => 'phone',
+    	description => 'Office phone for the provider',
+    	format => '',
+    	read_only => '',
+    		},
+    'presentation_name' => {
+    	datatype => 'string',
+    	base_name => 'presentation_name',
+    	description => 'Preferred name for display (e.g. Dr. Francis White may prefer Dr. Frank White)',
+    	format => '',
+    	read_only => '',
+    		},
+    'specialty' => {
+    	datatype => 'string',
+    	base_name => 'specialty',
+    	description => 'Name of the primary Specialty',
+    	format => '',
+    	read_only => '',
+    		},
+    'state' => {
+    	datatype => 'string',
+    	base_name => 'state',
+    	description => 'State code for the provider&#39;s address (e.g. NY).',
+    	format => '',
+    	read_only => '',
+    		},
+    'state_id' => {
+    	datatype => 'int',
+    	base_name => 'state_id',
+    	description => 'Foreign key to States',
+    	format => '',
+    	read_only => '',
+    		},
+    'street_line_1' => {
+    	datatype => 'string',
+    	base_name => 'street_line_1',
+    	description => 'First line of the provider&#39;s street address.',
+    	format => '',
+    	read_only => '',
+    		},
+    'street_line_2' => {
+    	datatype => 'string',
+    	base_name => 'street_line_2',
+    	description => 'Second line of the provider&#39;s street address.',
+    	format => '',
+    	read_only => '',
+    		},
+    'suffix' => {
+    	datatype => 'string',
+    	base_name => 'suffix',
+    	description => 'Suffix for the provider&#39;s name (e.g. Jr)',
+    	format => '',
+    	read_only => '',
+    		},
+    'title' => {
+    	datatype => 'string',
+    	base_name => 'title',
+    	description => 'Professional title for the provider (e.g. Dr).',
+    	format => '',
+    	read_only => '',
+    		},
+    'type' => {
+    	datatype => 'string',
+    	base_name => 'type',
+    	description => 'Type of NPI number (individual provider vs organization).',
+    	format => '',
+    	read_only => '',
+    		},
+    'zip_code' => {
+    	datatype => 'string',
+    	base_name => 'zip_code',
+    	description => 'Postal code for the provider&#39;s address (e.g. 11215)',
+    	format => '',
+    	read_only => '',
+    		},
+    'hios_ids' => {
+    	datatype => 'ARRAY[string]',
+    	base_name => 'hios_ids',
+    	description => 'List of HIOS ids for this provider',
     	format => '',
     	read_only => '',
     		},
 });
 
 __PACKAGE__->swagger_types( {
-    'id' => 'string',
-    'med_id' => 'int'
+    'accepting_change_of_payor_patients' => 'boolean',
+    'accepting_medicaid_patients' => 'boolean',
+    'accepting_medicare_patients' => 'boolean',
+    'accepting_private_patients' => 'boolean',
+    'accepting_referral_patients' => 'boolean',
+    'city' => 'string',
+    'email' => 'string',
+    'gender' => 'string',
+    'first_name' => 'string',
+    'id' => 'int',
+    'last_name' => 'string',
+    'latitude' => 'Number',
+    'longitude' => 'Number',
+    'middle_name' => 'string',
+    'network_ids' => 'ARRAY[int]',
+    'organization_name' => 'string',
+    'personal_phone' => 'string',
+    'phone' => 'string',
+    'presentation_name' => 'string',
+    'specialty' => 'string',
+    'state' => 'string',
+    'state_id' => 'int',
+    'street_line_1' => 'string',
+    'street_line_2' => 'string',
+    'suffix' => 'string',
+    'title' => 'string',
+    'type' => 'string',
+    'zip_code' => 'string',
+    'hios_ids' => 'ARRAY[string]'
 } );
 
 __PACKAGE__->attribute_map( {
+    'accepting_change_of_payor_patients' => 'accepting_change_of_payor_patients',
+    'accepting_medicaid_patients' => 'accepting_medicaid_patients',
+    'accepting_medicare_patients' => 'accepting_medicare_patients',
+    'accepting_private_patients' => 'accepting_private_patients',
+    'accepting_referral_patients' => 'accepting_referral_patients',
+    'city' => 'city',
+    'email' => 'email',
+    'gender' => 'gender',
+    'first_name' => 'first_name',
     'id' => 'id',
-    'med_id' => 'med_id'
+    'last_name' => 'last_name',
+    'latitude' => 'latitude',
+    'longitude' => 'longitude',
+    'middle_name' => 'middle_name',
+    'network_ids' => 'network_ids',
+    'organization_name' => 'organization_name',
+    'personal_phone' => 'personal_phone',
+    'phone' => 'phone',
+    'presentation_name' => 'presentation_name',
+    'specialty' => 'specialty',
+    'state' => 'state',
+    'state_id' => 'state_id',
+    'street_line_1' => 'street_line_1',
+    'street_line_2' => 'street_line_2',
+    'suffix' => 'suffix',
+    'title' => 'title',
+    'type' => 'type',
+    'zip_code' => 'zip_code',
+    'hios_ids' => 'hios_ids'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

@@ -383,7 +383,7 @@ __PACKAGE__->method_documentation({
     'meta' => {
     	datatype => 'Meta',
     	base_name => 'meta',
-    	description => 'Metadata for query',
+    	description => 'Meta-data',
     	format => '',
     	read_only => '',
     		},

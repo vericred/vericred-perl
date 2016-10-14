@@ -390,7 +390,7 @@ __PACKAGE__->method_documentation({
     'age29_rider' => {
     	datatype => 'boolean',
     	base_name => 'age29_rider',
-    	description => '',
+    	description => 'True if the plan allows dependents up to age 29',
     	format => '',
     	read_only => '',
     		},
@@ -474,7 +474,7 @@ __PACKAGE__->method_documentation({
     'dp_rider' => {
     	datatype => 'boolean',
     	base_name => 'dp_rider',
-    	description => 'Is this a domestic plan?',
+    	description => 'True if plan does not cover domestic partners',
     	format => '',
     	read_only => '',
     		},
@@ -537,7 +537,7 @@ __PACKAGE__->method_documentation({
     'fp_rider' => {
     	datatype => 'boolean',
     	base_name => 'fp_rider',
-    	description => 'Is this a family plan?',
+    	description => 'True if plan does not cover family planning',
     	format => '',
     	read_only => '',
     		},
@@ -807,6 +807,13 @@ __PACKAGE__->method_documentation({
     	format => '',
     	read_only => '',
     		},
+    'premium_source' => {
+    	datatype => 'string',
+    	base_name => 'premium_source',
+    	description => 'Source of the base pricing data',
+    	format => '',
+    	read_only => '',
+    		},
     'primary_care_physician' => {
     	datatype => 'string',
     	base_name => 'primary_care_physician',
@@ -920,6 +927,7 @@ __PACKAGE__->swagger_types( {
     'preventative_care' => 'string',
     'premium_subsidized' => 'Number',
     'premium' => 'Number',
+    'premium_source' => 'string',
     'primary_care_physician' => 'string',
     'rehabilitation_services' => 'string',
     'service_area_id' => 'string',
@@ -991,6 +999,7 @@ __PACKAGE__->attribute_map( {
     'preventative_care' => 'preventative_care',
     'premium_subsidized' => 'premium_subsidized',
     'premium' => 'premium',
+    'premium_source' => 'premium_source',
     'primary_care_physician' => 'primary_care_physician',
     'rehabilitation_services' => 'rehabilitation_services',
     'service_area_id' => 'service_area_id',

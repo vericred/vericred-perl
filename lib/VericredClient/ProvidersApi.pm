@@ -265,13 +265,13 @@ sub get_provider {
 #
 # Find Providers
 # 
-# @param RequestProvidersSearch $body  (optional)
+# @param RequestProvidersSearch $body  (required)
 {
     my $params = {
     'body' => {
         data_type => 'RequestProvidersSearch',
         description => '',
-        required => '0',
+        required => '1',
     },
     };
     __PACKAGE__->method_documentation->{ 'get_providers' } = { 
@@ -284,6 +284,11 @@ sub get_provider {
 #
 sub get_providers {
     my ($self, %args) = @_;
+
+    # verify the required parameter 'body' is set
+    unless (exists $args{'body'}) {
+      croak("Missing the required parameter 'body' when calling get_providers");
+    }
 
     # parse inputs
     my $_resource_path = '/providers/search';

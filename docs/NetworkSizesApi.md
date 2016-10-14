@@ -1,46 +1,46 @@
-# VericredClient::NetworksApi
+# VericredClient::NetworkSizesApi
 
 ## Load the API package
 ```perl
-use VericredClient::Object::NetworksApi;
+use VericredClient::Object::NetworkSizesApi;
 ```
 
 All URIs are relative to *https://api.vericred.com/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**list_networks**](NetworksApi.md#list_networks) | **GET** /networks | Networks
+[**list_state_network_sizes**](NetworkSizesApi.md#list_state_network_sizes) | **GET** /states/{state_id}/network_sizes | State Network Sizes
 
 
-# **list_networks**
-> NetworkSearchResponse list_networks(carrier_id => $carrier_id, page => $page, per_page => $per_page)
+# **list_state_network_sizes**
+> StateNetworkSizeResponse list_state_network_sizes(state_id => $state_id, page => $page, per_page => $per_page)
 
-Networks
+State Network Sizes
 
-A network is a list of the doctors, other health care providers, and hospitals that a plan has contracted with to provide medical care to its members. This endpoint is paginated.
+The number of in-network Providers for each network in a given state. This data is recalculated nightly.  The endpoint is paginated.
 
 ### Example 
 ```perl
 use Data::Dumper;
 use VericredClient::Configuration;
-use VericredClient::NetworksApi;
+use VericredClient::NetworkSizesApi;
 
 # Configure API key authorization: Vericred-Api-Key
 $VericredClient::Configuration::api_key->{'Vericred-Api-Key'} = 'YOUR_API_KEY';
 # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 #$VericredClient::Configuration::api_key_prefix->{'Vericred-Api-Key'} = "Bearer";
 
-my $api_instance = VericredClient::NetworksApi->new();
-my $carrier_id = '33333'; # string | Carrier HIOS Issuer ID
+my $api_instance = VericredClient::NetworkSizesApi->new();
+my $state_id = 'CA'; # string | State code
 my $page = 1; # int | Page of paginated response
 my $per_page = 1; # int | Responses per page
 
 eval { 
-    my $result = $api_instance->list_networks(carrier_id => $carrier_id, page => $page, per_page => $per_page);
+    my $result = $api_instance->list_state_network_sizes(state_id => $state_id, page => $page, per_page => $per_page);
     print Dumper($result);
 };
 if ($@) {
-    warn "Exception when calling NetworksApi->list_networks: $@\n";
+    warn "Exception when calling NetworkSizesApi->list_state_network_sizes: $@\n";
 }
 ```
 
@@ -48,13 +48,13 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **carrier_id** | **string**| Carrier HIOS Issuer ID | 
+ **state_id** | **string**| State code | 
  **page** | **int**| Page of paginated response | [optional] 
  **per_page** | **int**| Responses per page | [optional] 
 
 ### Return type
 
-[**NetworkSearchResponse**](NetworkSearchResponse.md)
+[**StateNetworkSizeResponse**](StateNetworkSizeResponse.md)
 
 ### Authorization
 

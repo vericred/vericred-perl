@@ -394,16 +394,25 @@ __PACKAGE__->method_documentation({
     	format => '',
     	read_only => '',
     		},
+    'med_id' => {
+    	datatype => 'int',
+    	base_name => 'med_id',
+    	description => 'Med ID',
+    	format => '',
+    	read_only => '',
+    		},
 });
 
 __PACKAGE__->swagger_types( {
     'id' => 'string',
-    'description' => 'string'
+    'description' => 'string',
+    'med_id' => 'int'
 } );
 
 __PACKAGE__->attribute_map( {
     'id' => 'id',
-    'description' => 'description'
+    'description' => 'description',
+    'med_id' => 'med_id'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

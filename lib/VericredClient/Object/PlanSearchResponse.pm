@@ -383,7 +383,7 @@ __PACKAGE__->method_documentation({
     'meta' => {
     	datatype => 'Meta',
     	base_name => 'meta',
-    	description => 'Metadata for query',
+    	description => 'Meta-data',
     	format => '',
     	read_only => '',
     		},
@@ -395,9 +395,9 @@ __PACKAGE__->method_documentation({
     	read_only => '',
     		},
     'coverages' => {
-    	datatype => 'ARRAY[Drug]',
+    	datatype => 'ARRAY[DrugCoverage]',
     	base_name => 'coverages',
-    	description => 'null',
+    	description => 'Coverages associated with the plan.',
     	format => '',
     	read_only => '',
     		},
@@ -406,7 +406,7 @@ __PACKAGE__->method_documentation({
 __PACKAGE__->swagger_types( {
     'meta' => 'Meta',
     'plans' => 'ARRAY[Plan]',
-    'coverages' => 'ARRAY[Drug]'
+    'coverages' => 'ARRAY[DrugCoverage]'
 } );
 
 __PACKAGE__->attribute_map( {

@@ -136,7 +136,7 @@ limitations under the License.
 # Do not edit the class manually.
 # Ref: https://github.com/swagger-api/swagger-codegen
 #
-package VericredClient::PlansApi;
+package VericredClient::NetworkSizesApi;
 
 require 5.6.0;
 use strict;
@@ -171,109 +171,49 @@ sub new {
 
 
 #
-# find_plans
+# list_state_network_sizes
 #
-# Find Plans
+# State Network Sizes
 # 
-# @param RequestPlanFind $body  (required)
+# @param string $state_id State code (required)
+# @param int $page Page of paginated response (optional)
+# @param int $per_page Responses per page (optional)
 {
     my $params = {
-    'body' => {
-        data_type => 'RequestPlanFind',
-        description => '',
-        required => '1',
-    },
-    };
-    __PACKAGE__->method_documentation->{ 'find_plans' } = { 
-    	summary => 'Find Plans',
-        params => $params,
-        returns => 'PlanSearchResponse',
-        };
-}
-# @return PlanSearchResponse
-#
-sub find_plans {
-    my ($self, %args) = @_;
-
-    # verify the required parameter 'body' is set
-    unless (exists $args{'body'}) {
-      croak("Missing the required parameter 'body' when calling find_plans");
-    }
-
-    # parse inputs
-    my $_resource_path = '/plans/search';
-    $_resource_path =~ s/{format}/json/; # default format to json
-
-    my $_method = 'POST';
-    my $query_params = {};
-    my $header_params = {};
-    my $form_params = {};
-
-    # 'Accept' and 'Content-Type' header
-    my $_header_accept = $self->{api_client}->select_header_accept();
-    if ($_header_accept) {
-        $header_params->{'Accept'} = $_header_accept;
-    }
-    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    my $_body_data;
-    # body params
-    if ( exists $args{'body'}) {
-        $_body_data = $args{'body'};
-    }
-
-    # authentication setting, if any
-    my $auth_settings = [qw(Vericred-Api-Key )];
-
-    # make the API Call
-    my $response = $self->{api_client}->call_api($_resource_path, $_method,
-                                           $query_params, $form_params,
-                                           $header_params, $_body_data, $auth_settings);
-    if (!$response) {
-        return;
-    }
-    my $_response_object = $self->{api_client}->deserialize('PlanSearchResponse', $response);
-    return $_response_object;
-}
-
-#
-# show_plan
-#
-# Show Plan
-# 
-# @param string $id ID of the Plan (required)
-# @param int $year Plan year (defaults to current year) (optional)
-{
-    my $params = {
-    'id' => {
+    'state_id' => {
         data_type => 'string',
-        description => 'ID of the Plan',
+        description => 'State code',
         required => '1',
     },
-    'year' => {
+    'page' => {
         data_type => 'int',
-        description => 'Plan year (defaults to current year)',
+        description => 'Page of paginated response',
+        required => '0',
+    },
+    'per_page' => {
+        data_type => 'int',
+        description => 'Responses per page',
         required => '0',
     },
     };
-    __PACKAGE__->method_documentation->{ 'show_plan' } = { 
-    	summary => 'Show Plan',
+    __PACKAGE__->method_documentation->{ 'list_state_network_sizes' } = { 
+    	summary => 'State Network Sizes',
         params => $params,
-        returns => 'PlanShowResponse',
+        returns => 'StateNetworkSizeResponse',
         };
 }
-# @return PlanShowResponse
+# @return StateNetworkSizeResponse
 #
-sub show_plan {
+sub list_state_network_sizes {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'id' is set
-    unless (exists $args{'id'}) {
-      croak("Missing the required parameter 'id' when calling show_plan");
+    # verify the required parameter 'state_id' is set
+    unless (exists $args{'state_id'}) {
+      croak("Missing the required parameter 'state_id' when calling list_state_network_sizes");
     }
 
     # parse inputs
-    my $_resource_path = '/plans/{id}';
+    my $_resource_path = '/states/{state_id}/network_sizes';
     $_resource_path =~ s/{format}/json/; # default format to json
 
     my $_method = 'GET';
@@ -289,14 +229,19 @@ sub show_plan {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('application/json');
 
     # query params
-    if ( exists $args{'year'}) {
-        $query_params->{'year'} = $self->{api_client}->to_query_value($args{'year'});
+    if ( exists $args{'page'}) {
+        $query_params->{'page'} = $self->{api_client}->to_query_value($args{'page'});
+    }
+
+    # query params
+    if ( exists $args{'per_page'}) {
+        $query_params->{'per_page'} = $self->{api_client}->to_query_value($args{'per_page'});
     }
 
     # path params
-    if ( exists $args{'id'}) {
-        my $_base_variable = "{" . "id" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'id'});
+    if ( exists $args{'state_id'}) {
+        my $_base_variable = "{" . "state_id" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'state_id'});
         $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
@@ -311,7 +256,7 @@ sub show_plan {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('PlanShowResponse', $response);
+    my $_response_object = $self->{api_client}->deserialize('StateNetworkSizeResponse', $response);
     return $_response_object;
 }
 

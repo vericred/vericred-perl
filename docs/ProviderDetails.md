@@ -1,8 +1,8 @@
-# VericredClient::Object::Provider
+# VericredClient::Object::ProviderDetails
 
 ## Load the model package
 ```perl
-use VericredClient::Object::Provider;
+use VericredClient::Object::ProviderDetails;
 ```
 
 ## Properties
@@ -36,6 +36,7 @@ Name | Type | Description | Notes
 **title** | **string** | Professional title for the provider (e.g. Dr). | [optional] 
 **type** | **string** | Type of NPI number (individual provider vs organization). | [optional] 
 **zip_code** | **string** | Postal code for the provider&#39;s address (e.g. 11215) | [optional] 
+**hios_ids** | **ARRAY[string]** | List of HIOS ids for this provider | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

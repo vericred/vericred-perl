@@ -136,7 +136,7 @@ limitations under the License.
 # Do not edit the class manually.
 # Ref: https://github.com/swagger-api/swagger-codegen
 #
-package VericredClient::PlansApi;
+package VericredClient::DrugPackagesApi;
 
 require 5.6.0;
 use strict;
@@ -171,109 +171,48 @@ sub new {
 
 
 #
-# find_plans
+# show_formulary_drug_package_coverage
 #
-# Find Plans
+# Formulary Drug Package Search
 # 
-# @param RequestPlanFind $body  (required)
+# @param string $formulary_id ID of the Formulary in question (required)
+# @param string $ndc_package_code ID of the DrugPackage in question (required)
 {
     my $params = {
-    'body' => {
-        data_type => 'RequestPlanFind',
-        description => '',
-        required => '1',
-    },
-    };
-    __PACKAGE__->method_documentation->{ 'find_plans' } = { 
-    	summary => 'Find Plans',
-        params => $params,
-        returns => 'PlanSearchResponse',
-        };
-}
-# @return PlanSearchResponse
-#
-sub find_plans {
-    my ($self, %args) = @_;
-
-    # verify the required parameter 'body' is set
-    unless (exists $args{'body'}) {
-      croak("Missing the required parameter 'body' when calling find_plans");
-    }
-
-    # parse inputs
-    my $_resource_path = '/plans/search';
-    $_resource_path =~ s/{format}/json/; # default format to json
-
-    my $_method = 'POST';
-    my $query_params = {};
-    my $header_params = {};
-    my $form_params = {};
-
-    # 'Accept' and 'Content-Type' header
-    my $_header_accept = $self->{api_client}->select_header_accept();
-    if ($_header_accept) {
-        $header_params->{'Accept'} = $_header_accept;
-    }
-    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    my $_body_data;
-    # body params
-    if ( exists $args{'body'}) {
-        $_body_data = $args{'body'};
-    }
-
-    # authentication setting, if any
-    my $auth_settings = [qw(Vericred-Api-Key )];
-
-    # make the API Call
-    my $response = $self->{api_client}->call_api($_resource_path, $_method,
-                                           $query_params, $form_params,
-                                           $header_params, $_body_data, $auth_settings);
-    if (!$response) {
-        return;
-    }
-    my $_response_object = $self->{api_client}->deserialize('PlanSearchResponse', $response);
-    return $_response_object;
-}
-
-#
-# show_plan
-#
-# Show Plan
-# 
-# @param string $id ID of the Plan (required)
-# @param int $year Plan year (defaults to current year) (optional)
-{
-    my $params = {
-    'id' => {
+    'formulary_id' => {
         data_type => 'string',
-        description => 'ID of the Plan',
+        description => 'ID of the Formulary in question',
         required => '1',
     },
-    'year' => {
-        data_type => 'int',
-        description => 'Plan year (defaults to current year)',
-        required => '0',
+    'ndc_package_code' => {
+        data_type => 'string',
+        description => 'ID of the DrugPackage in question',
+        required => '1',
     },
     };
-    __PACKAGE__->method_documentation->{ 'show_plan' } = { 
-    	summary => 'Show Plan',
+    __PACKAGE__->method_documentation->{ 'show_formulary_drug_package_coverage' } = { 
+    	summary => 'Formulary Drug Package Search',
         params => $params,
-        returns => 'PlanShowResponse',
+        returns => 'FormularyDrugPackageResponse',
         };
 }
-# @return PlanShowResponse
+# @return FormularyDrugPackageResponse
 #
-sub show_plan {
+sub show_formulary_drug_package_coverage {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'id' is set
-    unless (exists $args{'id'}) {
-      croak("Missing the required parameter 'id' when calling show_plan");
+    # verify the required parameter 'formulary_id' is set
+    unless (exists $args{'formulary_id'}) {
+      croak("Missing the required parameter 'formulary_id' when calling show_formulary_drug_package_coverage");
+    }
+
+    # verify the required parameter 'ndc_package_code' is set
+    unless (exists $args{'ndc_package_code'}) {
+      croak("Missing the required parameter 'ndc_package_code' when calling show_formulary_drug_package_coverage");
     }
 
     # parse inputs
-    my $_resource_path = '/plans/{id}';
+    my $_resource_path = '/formularies/{formulary_id}/drug_packages/{ndc_package_code}';
     $_resource_path =~ s/{format}/json/; # default format to json
 
     my $_method = 'GET';
@@ -288,15 +227,17 @@ sub show_plan {
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('application/json');
 
-    # query params
-    if ( exists $args{'year'}) {
-        $query_params->{'year'} = $self->{api_client}->to_query_value($args{'year'});
+    # path params
+    if ( exists $args{'formulary_id'}) {
+        my $_base_variable = "{" . "formulary_id" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'formulary_id'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     # path params
-    if ( exists $args{'id'}) {
-        my $_base_variable = "{" . "id" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'id'});
+    if ( exists $args{'ndc_package_code'}) {
+        my $_base_variable = "{" . "ndc_package_code" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'ndc_package_code'});
         $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
@@ -311,7 +252,7 @@ sub show_plan {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('PlanShowResponse', $response);
+    my $_response_object = $self->{api_client}->deserialize('FormularyDrugPackageResponse', $response);
     return $_response_object;
 }
 
