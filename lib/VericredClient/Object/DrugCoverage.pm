@@ -394,10 +394,10 @@ __PACKAGE__->method_documentation({
     	format => '',
     	read_only => '',
     		},
-    'tier' => {
-    	datatype => 'string',
-    	base_name => 'tier',
-    	description => 'Tier Name',
+    'med_id' => {
+    	datatype => 'int',
+    	base_name => 'med_id',
+    	description => 'Med ID',
     	format => '',
     	read_only => '',
     		},
@@ -422,24 +422,33 @@ __PACKAGE__->method_documentation({
     	format => '',
     	read_only => '',
     		},
+    'tier' => {
+    	datatype => 'string',
+    	base_name => 'tier',
+    	description => 'Tier Name',
+    	format => '',
+    	read_only => '',
+    		},
 });
 
 __PACKAGE__->swagger_types( {
     'plan_id' => 'string',
     'drug_package_id' => 'string',
-    'tier' => 'string',
+    'med_id' => 'int',
     'quantity_limit' => 'boolean',
     'prior_authorization' => 'boolean',
-    'step_therapy' => 'boolean'
+    'step_therapy' => 'boolean',
+    'tier' => 'string'
 } );
 
 __PACKAGE__->attribute_map( {
     'plan_id' => 'plan_id',
     'drug_package_id' => 'drug_package_id',
-    'tier' => 'tier',
+    'med_id' => 'med_id',
     'quantity_limit' => 'quantity_limit',
     'prior_authorization' => 'prior_authorization',
-    'step_therapy' => 'step_therapy'
+    'step_therapy' => 'step_therapy',
+    'tier' => 'tier'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

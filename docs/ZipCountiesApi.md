@@ -22,6 +22,8 @@ Our `Plan` endpoints require a zip code and a fips (county) code.  This is becau
 ### Example 
 ```perl
 use Data::Dumper;
+use VericredClient::Configuration;
+use VericredClient::ZipCountiesApi;
 
 # Configure API key authorization: Vericred-Api-Key
 $VericredClient::Configuration::api_key->{'Vericred-Api-Key'} = 'YOUR_API_KEY';

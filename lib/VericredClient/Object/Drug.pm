@@ -387,6 +387,13 @@ __PACKAGE__->method_documentation({
     	format => '',
     	read_only => '',
     		},
+    'active_ingredient_strength' => {
+    	datatype => 'string',
+    	base_name => 'active_ingredient_strength',
+    	description => 'Active Ingredient Strength information',
+    	format => '',
+    	read_only => '',
+    		},
     'proprietary_name' => {
     	datatype => 'string',
     	base_name => 'proprietary_name',
@@ -412,6 +419,7 @@ __PACKAGE__->method_documentation({
 
 __PACKAGE__->swagger_types( {
     'id' => 'string',
+    'active_ingredient_strength' => 'string',
     'proprietary_name' => 'string',
     'non_proprietary_name' => 'string',
     'drug_package_ids' => 'ARRAY[string]'
@@ -419,6 +427,7 @@ __PACKAGE__->swagger_types( {
 
 __PACKAGE__->attribute_map( {
     'id' => 'id',
+    'active_ingredient_strength' => 'active_ingredient_strength',
     'proprietary_name' => 'proprietary_name',
     'non_proprietary_name' => 'non_proprietary_name',
     'drug_package_ids' => 'drug_package_ids'

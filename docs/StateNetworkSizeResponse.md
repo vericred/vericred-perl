@@ -1,16 +1,15 @@
-# VericredClient::Object::ProvidersSearchResponse
+# VericredClient::Object::StateNetworkSizeResponse
 
 ## Load the model package
 ```perl
-use VericredClient::Object::ProvidersSearchResponse;
+use VericredClient::Object::StateNetworkSizeResponse;
 ```
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **meta** | [**Meta**](Meta.md) | Meta-data | [optional] 
-**providers** | [**ARRAY[Provider]**](Provider.md) | Providers that fit the requested criterion. | [optional] 
-**states** | [**ARRAY[State]**](State.md) | States that fit the requested criterion. | [optional] 
+**network_sizes** | [**ARRAY[NetworkSize]**](NetworkSize.md) | Network Sizes | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

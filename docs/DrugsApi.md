@@ -23,6 +23,8 @@ Drug Coverages are the specific tier level, quantity limit, prior authorization 
 ### Example 
 ```perl
 use Data::Dumper;
+use VericredClient::Configuration;
+use VericredClient::DrugsApi;
 
 # Configure API key authorization: Vericred-Api-Key
 $VericredClient::Configuration::api_key->{'Vericred-Api-Key'} = 'YOUR_API_KEY';
@@ -30,9 +32,9 @@ $VericredClient::Configuration::api_key->{'Vericred-Api-Key'} = 'YOUR_API_KEY';
 #$VericredClient::Configuration::api_key_prefix->{'Vericred-Api-Key'} = "Bearer";
 
 my $api_instance = VericredClient::DrugsApi->new();
-my $ndc_package_code = '12345-4321-11'; # string | NDC package code
-my $audience = 'individual'; # string | Two-character state code
-my $state_code = 'NY'; # string | Two-character state code
+my $ndc_package_code = '07777-3105-01'; # string | NDC package code
+my $audience = 'individual'; # string | Plan Audience (individual or small_group)
+my $state_code = 'CA'; # string | Two-character state code
 
 eval { 
     my $result = $api_instance->get_drug_coverages(ndc_package_code => $ndc_package_code, audience => $audience, state_code => $state_code);
@@ -48,7 +50,7 @@ if ($@) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ndc_package_code** | **string**| NDC package code | 
- **audience** | **string**| Two-character state code | 
+ **audience** | **string**| Plan Audience (individual or small_group) | 
  **state_code** | **string**| Two-character state code | 
 
 ### Return type
@@ -76,6 +78,8 @@ Search for drugs by proprietary name
 ### Example 
 ```perl
 use Data::Dumper;
+use VericredClient::Configuration;
+use VericredClient::DrugsApi;
 
 # Configure API key authorization: Vericred-Api-Key
 $VericredClient::Configuration::api_key->{'Vericred-Api-Key'} = 'YOUR_API_KEY';

@@ -136,7 +136,7 @@ limitations under the License.
 # Do not edit the class manually.
 # Ref: https://github.com/swagger-api/swagger-codegen
 #
-package VericredClient::Object::RequestPlanFindDrugPackage;
+package VericredClient::Object::FormularyDrugPackageResponse;
 
 require 5.6.0;
 use strict;
@@ -375,35 +375,44 @@ sub _deserialize {
 
 
 __PACKAGE__->class_documentation({description => '',
-                                  class => 'RequestPlanFindDrugPackage',
+                                  class => 'FormularyDrugPackageResponse',
                                   required => [], # TODO
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'id' => {
-    	datatype => 'string',
-    	base_name => 'id',
-    	description => 'National Drug Code ID (Package)',
+    'coverage' => {
+    	datatype => 'DrugCoverage',
+    	base_name => 'coverage',
+    	description => 'DrugCoverage',
     	format => '',
     	read_only => '',
     		},
-    'med_id' => {
-    	datatype => 'int',
-    	base_name => 'med_id',
-    	description => 'Med ID, mutually exclusive with id',
+    'drug_package' => {
+    	datatype => 'DrugPackage',
+    	base_name => 'drug_package',
+    	description => 'DrugPackage',
+    	format => '',
+    	read_only => '',
+    		},
+    'formulary' => {
+    	datatype => 'Formulary',
+    	base_name => 'formulary',
+    	description => 'Formulary',
     	format => '',
     	read_only => '',
     		},
 });
 
 __PACKAGE__->swagger_types( {
-    'id' => 'string',
-    'med_id' => 'int'
+    'coverage' => 'DrugCoverage',
+    'drug_package' => 'DrugPackage',
+    'formulary' => 'Formulary'
 } );
 
 __PACKAGE__->attribute_map( {
-    'id' => 'id',
-    'med_id' => 'med_id'
+    'coverage' => 'coverage',
+    'drug_package' => 'drug_package',
+    'formulary' => 'formulary'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

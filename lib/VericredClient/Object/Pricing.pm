@@ -457,6 +457,20 @@ __PACKAGE__->method_documentation({
     	format => '',
     	read_only => '',
     		},
+    'premium_source' => {
+    	datatype => 'string',
+    	base_name => 'premium_source',
+    	description => 'Where was this pricing data extracted from?',
+    	format => '',
+    	read_only => '',
+    		},
+    'updated_at' => {
+    	datatype => 'string',
+    	base_name => 'updated_at',
+    	description => 'Time when pricing was last updated',
+    	format => '',
+    	read_only => '',
+    		},
 });
 
 __PACKAGE__->swagger_types( {
@@ -470,7 +484,9 @@ __PACKAGE__->swagger_types( {
     'premium_single_and_children' => 'Number',
     'premium_single_and_spouse' => 'Number',
     'premium_single_smoker' => 'Number',
-    'rating_area_id' => 'string'
+    'rating_area_id' => 'string',
+    'premium_source' => 'string',
+    'updated_at' => 'string'
 } );
 
 __PACKAGE__->attribute_map( {
@@ -484,7 +500,9 @@ __PACKAGE__->attribute_map( {
     'premium_single_and_children' => 'premium_single_and_children',
     'premium_single_and_spouse' => 'premium_single_and_spouse',
     'premium_single_smoker' => 'premium_single_smoker',
-    'rating_area_id' => 'rating_area_id'
+    'rating_area_id' => 'rating_area_id',
+    'premium_source' => 'premium_source',
+    'updated_at' => 'updated_at'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

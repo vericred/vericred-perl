@@ -136,7 +136,7 @@ limitations under the License.
 # Do not edit the class manually.
 # Ref: https://github.com/swagger-api/swagger-codegen
 #
-package VericredClient::Object::RequestPlanFindDrugPackage;
+package VericredClient::Object::NetworkSize;
 
 require 5.6.0;
 use strict;
@@ -375,35 +375,44 @@ sub _deserialize {
 
 
 __PACKAGE__->class_documentation({description => '',
-                                  class => 'RequestPlanFindDrugPackage',
+                                  class => 'NetworkSize',
                                   required => [], # TODO
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'id' => {
-    	datatype => 'string',
-    	base_name => 'id',
-    	description => 'National Drug Code ID (Package)',
+    'network_id' => {
+    	datatype => 'int',
+    	base_name => 'network_id',
+    	description => 'Foreign key to Network',
     	format => '',
     	read_only => '',
     		},
-    'med_id' => {
+    'count' => {
     	datatype => 'int',
-    	base_name => 'med_id',
-    	description => 'Med ID, mutually exclusive with id',
+    	base_name => 'count',
+    	description => 'Number of Providers in-network in this State',
+    	format => '',
+    	read_only => '',
+    		},
+    'state_id' => {
+    	datatype => 'string',
+    	base_name => 'state_id',
+    	description => 'Foreign key to State',
     	format => '',
     	read_only => '',
     		},
 });
 
 __PACKAGE__->swagger_types( {
-    'id' => 'string',
-    'med_id' => 'int'
+    'network_id' => 'int',
+    'count' => 'int',
+    'state_id' => 'string'
 } );
 
 __PACKAGE__->attribute_map( {
-    'id' => 'id',
-    'med_id' => 'med_id'
+    'network_id' => 'network_id',
+    'count' => 'count',
+    'state_id' => 'state_id'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

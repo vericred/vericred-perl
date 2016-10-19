@@ -160,8 +160,9 @@ isa_ok($api, 'VericredClient::PlansApi');
 # show_plan test
 #
 {
+    my $id = undef; # replace NULL with a proper value
     my $year = undef; # replace NULL with a proper value
-    my $result = $api->show_plan(year => $year);
+    my $result = $api->show_plan(id => $id, year => $year);
 }
 
 

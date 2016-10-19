@@ -176,7 +176,7 @@ sub new {
 # Search for DrugCoverages
 # 
 # @param string $ndc_package_code NDC package code (required)
-# @param string $audience Two-character state code (required)
+# @param string $audience Plan Audience (individual or small_group) (required)
 # @param string $state_code Two-character state code (required)
 {
     my $params = {
@@ -187,7 +187,7 @@ sub new {
     },
     'audience' => {
         data_type => 'string',
-        description => 'Two-character state code',
+        description => 'Plan Audience (individual or small_group)',
         required => '1',
     },
     'state_code' => {

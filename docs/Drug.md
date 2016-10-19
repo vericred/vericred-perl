@@ -9,6 +9,7 @@ use VericredClient::Object::Drug;
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** | National Drug Code ID | [optional] 
+**active_ingredient_strength** | **string** | Active Ingredient Strength information | [optional] 
 **proprietary_name** | **string** | Proprietary name of drug | [optional] 
 **non_proprietary_name** | **string** | Non-proprietary name of drug | [optional] 
 **drug_package_ids** | **ARRAY[string]** | Array of drug package Ids | [optional] 
